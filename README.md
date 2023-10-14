@@ -1,8 +1,12 @@
-# Basic Angular Questions
+This document is a collection of Angular interview questions for assessing potential front-end candidates. Note that it's not advisable to pose all these questions to a single candidate within a single interview session, as it would be too time-consuming. Instead, you should selectively choose a few questions from this list that align with the specific skills you seek to evaluate.
+
+It's worth emphasizing that a developer can proficiently work with Angular to create applications without necessarily knowing the answers to every question provided here.
+
+# Junior to Mid-Level Angular Questions
 
 ## Angular Basics
 
-### 1. **What is Angular?**
+### **What is Angular?**
 
    Angular is a TypeScript-based, open-source framework developed by Google. It offers a structured way to build dynamic web applications, making use of components, modules, services, and a powerful dependency injection system.
 
@@ -10,7 +14,7 @@
    
    Here's an in-depth answer that covers the history of Angular and its competitors:
 
-### 2. Explain Angular's history
+### Explain Angular's history
 
 #### AngularJS (1.x):
 AngularJS was first introduced by Google in 2010 as a JavaScript-based front-end framework. It aimed to simplify web development by offering a declarative way to build dynamic web applications. Key features of AngularJS included two-way data binding, dependency injection, and the use of directives to extend HTML.
@@ -22,7 +26,7 @@ Angular 2, released in 2016, was a complete rewrite of AngularJS. It was not an 
 
 Since then, Angular has continued to evolve with regular updates and improvements. As of this writing, Angular 17 is set to release in November 2023.
 
-### 3. What are competitors of Angular, and shat are their distinguishing features?
+### What are competitors of Angular, and what are their distinguishing features?
 
 1. **React:** Developed and maintained by Facebook, React is one of the most popular JavaScript libraries for building user interfaces. React focuses on the component-based architecture and offers a virtual DOM for efficient rendering. React is known for its flexibility and a vast ecosystem of libraries and tools.
 
@@ -36,14 +40,14 @@ Since then, Angular has continued to evolve with regular updates and improvement
 
 Each of these competitors has its strengths and weaknesses, and the choice between them often depends on the specific needs of a project, developer preferences, and the existing tech stack. Angular, with its robust set of features and tools, is a strong contender in the web development ecosystem, particularly for large, enterprise-level applications.
 
-### 4. **Explain the key building blocks of Angular.**
+### **Explain the key building blocks of Angular.**
    Angular applications are built using components, modules, services, and directives.
    - **Components:** Components are the basic building blocks of an Angular application. They encapsulate the UI and logic of a part of the application.
    - **Modules:** Modules help organize an Angular application into functional units. They group related components, services, and other code.
    - **Services:** Services provide shared functionality and data throughout the application. They can be injected into components or other services.
    - **Directives:** Directives are special markers in the DOM that tell Angular to do something with an element. Examples include `ngFor` and `ngIf`.
 
-### 5. **What is data binding in Angular?**
+### **What is data binding in Angular?**
    Data binding in Angular allows automatic synchronization of data between the model and the view.
 
    **Answer:**
@@ -51,10 +55,10 @@ Each of these competitors has its strengths and weaknesses, and the choice betwe
 
 ## Angular Components
 
-### 6. **What is a component in Angular?**
+### **What is a component in Angular?**
 An Angular component serves as a fundamental architectural unit within an Angular application. It encapsulates a specific section of the UI and the associated programmatic logic.
 
-### Anatomy of an Angular Component:
+#### Anatomy of an Angular Component:
 
 1. **Component Class:** This class defines the component's behavior, properties, methods, and serves as the container for the application logic linked to the component.
 
@@ -89,7 +93,7 @@ An Angular component serves as a fundamental architectural unit within an Angula
 
 6. **Data Binding:** Components can harness data binding to exhibit dynamic content within the template. Angular provides one-way binding (`{{ }}`), property binding (`[ ]`), and event binding (`( )`).
 
-### Key Characteristics of Angular Components:
+#### Key Characteristics of Angular Components:
 
 1. **Reusability:** Angular components are reusable and self-contained. This means that you can employ the same component across various sections of your application, promoting code reusability.
 
@@ -105,10 +109,10 @@ An Angular component serves as a fundamental architectural unit within an Angula
 
 In summation, Angular components represent modular, reusable, and self-contained build blocks of an application. They blend the user interface with the logic required to govern it.
 
-### 7. **Explain lifecycle hooks in Angular.**
+### **Explain lifecycle hooks in Angular.**
 Lifecycle hooks in Angular are predefined component class methods that allow you to tap into specific moments in a component's lifecycle. They offer opportunities to execute code at a specific phases, making it possible to perform various tasks as your component is created, updated, or destroyed. Here are some of the most common Angular lifecycle hooks and examples of when and why you'd use them:
 
-### 1. `ngOnChanges`:
+#### 1. `ngOnChanges`:
 
 - **Functionality:** This hook is called when input properties change.
 - **Example:** You can use it to react to changes in input data and perform specific actions when those changes occur. For instance, updating component properties based on input changes.
@@ -122,7 +126,7 @@ ngOnChanges(changes: SimpleChanges) {
 }
 ```
 
-### 2. `ngOnInit`:
+#### 2. `ngOnInit`:
 
 - **Functionality:** It's called after the component is initialized.
 - **Example:** You can use it to initialize component properties, fetch data from a server, or set up subscriptions to observables.
@@ -135,7 +139,7 @@ ngOnInit() {
 }
 ```
 
-### 3. `ngAfterViewInit`:
+#### 3. `ngAfterViewInit`:
 
 - **Functionality:** This hook is called after the component's view and child views have been initialized.
 - **Example:** You might use it for operations that require access to the DOM, like initializing third-party libraries, setting up charts, or performing animations.
@@ -147,7 +151,7 @@ ngAfterViewInit() {
 }
 ```
 
-### 4. `ngOnDestroy`:
+#### 4. `ngOnDestroy`:
 
 - **Functionality:** It's called just before the component is destroyed.
 - **Example:** Use it to clean up resources, unsubscribe from observables, or perform any necessary teardown to avoid memory leaks.
@@ -159,7 +163,7 @@ ngOnDestroy() {
 }
 ```
 
-### 5. `ngDoCheck`:
+#### 5. `ngDoCheck`:
 
 - **Functionality:** This hook is called during every change detection cycle.
 - **Example:** You can use it to perform custom change detection and respond to changes in component properties.
@@ -173,7 +177,7 @@ ngDoCheck() {
 }
 ```
 
-### 6. `ngAfterContentInit` and `ngAfterContentChecked`:
+#### 6. `ngAfterContentInit` and `ngAfterContentChecked`:
 
 - **Functionality:** These hooks are related to content projection and are called when the content children are initialized and checked, respectively.
 - **Example:** Use them when your component projects content (using `<ng-content>`) and needs to interact with or manipulate projected elements.
@@ -188,7 +192,7 @@ ngAfterContentChecked() {
 }
 ```
 
-### 7. `ngAfterViewChecked`:
+#### 7. `ngAfterViewChecked`:
 
 - **Functionality:** This hook is called after the component's view and child views have been checked.
 - **Example:** You might use it for additional actions after view updates, such as logging, custom change detection, or interactions with third-party libraries.
@@ -204,13 +208,13 @@ Each lifecycle hook serves a specific purpose in managing the component's lifecy
 
 ## Angular Services
 
-### 8. **What are Angular services?**
+### **What are Angular services?**
    Services are used to share data and business logic between different parts of an application. They are typically singletons, meaning there's only one instance of a service throughout the application.
 
-### 9. **What is the difference between a singleton and non-singleton Angular service?**
+### **What is the difference between a singleton and non-singleton Angular service?**
    The primary difference between a singleton service and a non-singleton service lies in their lifetime and whether they are application-wide.
 
-### Singleton Service:
+#### Singleton Service:
 
 - **Definition:** A singleton service is a service for which there is only one instance throughout the application's lifetime. It's created when it's first requested and then cached for reuse.
 
@@ -238,7 +242,7 @@ export class AuthService {
 }
 ```
 
-### Non-Singleton Service:
+#### Non-Singleton Service:
 
 - **Definition:** A non-singleton service is created and instantiated separately each time it's requested. There's a new instance for each component or service that injects it. Memory usage for a non-singleton service is less than that for a singleton service, since the service will be destroyed when the component or service its injected into is destroyed.
 
@@ -375,10 +379,10 @@ export class AdminModule {}
 
 By dividing your Angular app into modules, you can keep your codebase organized, load only the necessary modules on demand, and facilitate team collaboration on different parts of the application. It also promotes reusability and makes your codebase more maintainable as it grows.
 
-### 12. **What is lazy loading and why is it useful in Angular applications?**
+### **What is lazy loading and why is it useful in Angular applications?**
    Lazy loading is a technique in Angular that allows you to load modules only when they are needed, reducing the initial load time of your application. This is especially useful for large applications where you want to minimize the initial bundle size, which will improve the initial load time for users.
 
-### 13. **Describe how you would lazy load a module in a Angular application.**
+### **Describe how you would lazy load a module in an Angular application.**
 Let's assume you have an Angular application with a feature module named "ProductsModule" that you want to lazy load. This module contains components and services related to product management.
 
 1. **Create the Feature Module (`products.module.ts`):**
@@ -458,19 +462,19 @@ With this setup, when a user navigates to the "products" route, Angular will dyn
 
 ## Angular Routing
 
-### 14. **What is Angular routing?**
+### **What is Angular routing?**
    Angular's router enables navigation between views, making it possible to create single-page applications with multiple screens that can be bookmarked and linked to.
 
-### 15. **Explain the difference between router parameters and query parameters.**
+### **Explain the difference between router parameters and query parameters.**
    - **Router parameters:** These are part of the route's URL and are used to pass data to a component when navigating.
    - **Query parameters:** These are optional and appear after the "?" in the URL. They are often used for filtering, sorting, or other non-essential data.
 
 ## Angular Directives
 
-### 16. **What are directives in Angular?**
+### **What are directives in Angular?**
    Directives are markers on DOM elements that tell Angular to attach behavior or manipulate the DOM. They can be classified into three types: structural directives, attribute directives, and component directives.
 
-### 17. **Differentiate between structural and attribute directives.**
+### **Differentiate between structural and attribute directives.**
    What's the difference between structural and attribute directives in Angular?
 
    **Answer:**
@@ -479,14 +483,14 @@ With this setup, when a user navigates to the "products" route, Angular will dyn
 
 ## Angular Pipes
 
-### 18. **What are Angular pipes?**
+### **What are Angular pipes?**
 Angular pipes are a feature that allows you to transform and format data before it's displayed in the template. Pipes are used in Angular templates to apply common data manipulation tasks, such as formatting dates, numbers, and text, or filtering and sorting lists. Some commonly used built-in pipes are 'date', 'currency', 'uppercase', 'lowercase', 'percent'.
 
-# Advanced Angular Questions
+# Mid to Senior-Level Angular Questions
 
 ## Dependency Injection
 
-### 18. **What is dependency injection in Angular?**
+### **What is dependency injection in Angular?**
 In Angular, the Dependency Injection (DI) system is built around the concept of Inversion of Control (IoC). Instead of a component creating its own dependencies, Angular's DI system manages and provides these dependencies. It has several key components:
 
 1. **Providers:** Providers are responsible for creating and configuring instances of services and other objects. They are usually defined in the `providers` array of a module or component.
@@ -552,7 +556,7 @@ export class AppModule {}
 
 In this example, the `UserProfileComponent` uses Dependency Injection to request the `UserService` as a dependency. Angular's Injector system takes care of providing the appropriate instance of the `UserService`. This not only promotes code reusability but also allows for easier testing, as you can provide mock services during unit tests.
 
-### 19. **How does Angular's depenceny injection compare to React's?**
+### **How does Angular's dependency injection compare to React's?**
 
 In React, dependency injection is not part of the framework itself, but it can be achieved through other means:
 
@@ -562,9 +566,60 @@ In React, dependency injection is not part of the framework itself, but it can b
 
 Angular's Dependency Injection system provides a more structured and automatic way of managing and providing dependencies. React, on the other hand, gives you more flexibility to choose your preferred method for dependency management, but it requires more manual effort to set up and maintain the injection of dependencies. Each approach has its own advantages and may be better suited to different project requirements and developer preferences.
 
+## Components
+### **What is the difference between a smart component and dumb component in Angular? Give an example. What are the advantages of using each type of component?**
+
+In Angular, the concepts of "smart/container components" and "dumb/presentational components" are design patterns used to organize and separate the responsibilities of components in your application. These patterns help improve maintainability, reusability, and testability. Here are the key differences, use case examples, and advantages of each:
+
+**Smart/Container Components:**
+
+1. **Responsibilities:**
+   - Smart components are responsible for handling application logic, data manipulation, and interactions with services or APIs.
+   - They are often connected to the application's state management, such as NgRx or Angular services.
+   - Smart components manage the communication with child components, often by passing data and handling events.
+
+2. **Use Case Examples:**
+   - A user profile page that loads user data from an API and handles user-related actions, such as updating the user's profile.
+   - A product list component that fetches a list of products from a service, filters, and sorts them, and then passes the data to a dumb component for rendering.
+
+3. **Advantages:**
+   - Separation of Concerns: By offloading data and logic to smart components, you achieve a clear separation of concerns, making the code easier to maintain and understand.
+   - Testability: Smart components can be unit-tested more easily because they contain the core logic of your application.
+   - Reusability: Smart components can be reused in different parts of your application, sharing their logic and functionality.
+
+**Dumb/Presentational Components:**
+
+1. **Responsibilities:**
+   - Dumb components are primarily concerned with rendering the user interface and displaying data.
+   - They receive data and user interactions as input via Angular's `@Input` properties and `@Output` events.
+   - Dumb components should have no knowledge of how the data is fetched or manipulated.
+
+2. **Use Case Examples:**
+   - A button component that receives a label and emits a click event.
+   - A table row component that displays data received from a smart component and triggers events when the user interacts with it.
+
+3. **Advantages:**
+   - Reusability: Dumb components are highly reusable because they are concerned only with rendering and are agnostic to data sources.
+   - Testability: Dumb components are straightforward to test as they have clear inputs and outputs.
+   - Readability: Separating rendering from logic enhances code readability and makes it easier to identify the role of each component.
+
+**Advantages of Using These Patterns:**
+
+1. **Code Organization:** These patterns provide clear separation of concerns, making it easier to manage and maintain the codebase.
+
+2. **Reusability:** Dumb components can be reused across various parts of your application, and smart components can be used in different contexts.
+
+3. **Testability:** Components with well-defined responsibilities are easier to test, resulting in more reliable and maintainable tests.
+
+4. **Collaboration:** These patterns make it easier for multiple developers to work on different parts of the application concurrently, as the roles and responsibilities of each component are well-defined.
+
+5. **Scalability:** As your application grows, these patterns help maintain consistency and structure, making it easier to scale and add new features.
+
+In summary, the smart/container component pattern is used for managing logic and state, while the dumb/presentational component pattern is focused on rendering and user interface interactions. Separating these concerns enhances code quality, maintainability, and collaboration while improving reusability and testability.
+
 ## Pipes
 
-### 19. **How would you create a custom pipe in Angular and use it?**
+### **How would you create a custom pipe in Angular and use it?**
 Creating a custom Angular pipe allows you to define a specific data transformation that suits your application's needs. Here's an example of creating and using a custom pipe that capitalizes the first letter of a string:
 
 1. **Create the Custom Pipe:**
@@ -620,7 +675,7 @@ Creating a custom Angular pipe allows you to define a specific data transformati
 By creating and using custom pipes, you can tailor your data transformations to meet the specific requirements of your application, enhancing the readability and user-friendliness of your templates.
 
      ```
-### 19. **How do you use Angular's async pipe and what functionality does it include?**
+### **How do you use Angular's async pipe and what functionality does it include?**
 Angular's `async` pipe is a built-in pipe that simplifies working with asynchronous data streams, such as Observables and Promises, in Angular templates. It is a powerful tool for handling data that may arrive asynchronously from the server or user interactions. The `async` pipe automatically subscribes to the provided asynchronous source and unwraps the values, making them available in the template. 
 
 Here's how you use the `async` pipe and the functionality it includes:
@@ -655,7 +710,7 @@ Here's how you use the `async` pipe and the functionality it includes:
 
    The `async` pipe simplifies working with asynchronous data in Angular applications, making it a convenient tool for handling observables, promises, and other asynchronous data sources. It's a best practice for dealing with asynchronous data in Angular templates, as it helps ensure proper management of subscriptions and up-to-date UI representations.
 
-### 20. **When would you choose a class method over a pipe to transform displayed data?**
+### **When would you choose a class method over a pipe to transform displayed data?**
 Choosing between a pipe and a class method for modifying data to display in an Angular template also depends on whether the data transformation occurs every time change detection is triggered. Here are additional considerations in that context:
 
 **Using a Pipe:**
@@ -678,7 +733,7 @@ In summary, if your data transformation is tightly coupled with change detection
 
 ## Angular Routing
 
-### 16. **How would you protect a component being activated through the router?**
+### **How would you protect a component being activated through the router?**
 
 To protect a component from being activated through the router in Angular, you can implement a guard. Guards are used to control access to specific routes or components in your application. In this case, you want to prevent the activation of a component under certain conditions. Here's how you can protect a component using a route guard:
 
@@ -750,21 +805,21 @@ By following these steps and customizing the guard logic, you can protect a comp
 
 ## Forms in Angular
 
-### 16. **Explain template-driven forms and reactive forms in Angular.**
+### **Explain template-driven forms and reactive forms in Angular.**
    What are template-driven forms and reactive forms, and when should you use each?
 
    **Answer:**
    - **Template-driven forms:** These forms are built using templates with two-way data binding. They are suitable for simple forms and are easier to set up.
    - **Reactive forms:** These forms are built programmatically and offer more flexibility and control. They are ideal for complex forms and validation requirements.
 
-### 17. **How do you perform form validation in Angular?**
+### **How do you perform form validation in Angular?**
    Describe the methods and techniques for form validation in Angular.
 
    **Answer:**
    Angular provides both template-driven and reactive forms with built-in validation features. You can use template-based validation attributes like `required` or set up custom validators in reactive forms using the `Validators` class.
 
 ## Animation in Angular
-### 25. **How do you define a transition between two animation states in Angular?**
+### **How do you define a transition between two animation states in Angular?**
 In Angular, you can define transitions between two animation states using the Angular Animations module. This module provides a powerful and declarative way to create animations and transitions in your Angular application. To define transitions between two animation states, you'll typically use the `trigger`, `state`, `transition`, and `animate` functions. Here's how to do it:
 
 1. **Import the Angular Animations Module:**
@@ -833,11 +888,11 @@ In Angular, you can define transitions between two animation states using the An
 
    In this example, clicking an element can trigger the animation by changing the `animationState` between 'hidden' and 'visible.'
 
-### 25. **How do you define a wildcard state in an Angular animation?**
+### **How do you define a wildcard state in an Angular animation?**
 In Angular's animations module, you can define a wildcard state using the `*` (asterisk) character. A wildcard state, often referred to as a catch-all state, allows you to apply a common animation to elements when their specific state transitions are not explicitly defined.
 
 ## Code Examples
-### 25. **What does this code do and when would you use it versus using [ngClass] in the template?**
+### **What does this code do and when would you use it versus using [ngClass] in the template?**
 
 ```@HostBinding('class.valid') isValid;```
 
@@ -865,7 +920,7 @@ Here's when you might choose to use `@HostBinding` over `[ngClass] in the templa
 
 In summary, the choice between `@HostBinding` and `[ngClass] in the template depends on your specific use case and requirements. If you want a simple, direct, and possibly more performant way to apply a class to the host element of a directive based on a single property, `@HostBinding` is a suitable choice. If you need more complex class application logic, multiple class conditions, or interactions in the template, `[ngClass]` is more flexible and appropriate.
 
-### 25. **What does this code do?**
+### **What does this code do?**
 ```<div *ngIf='someObservableData | async as data; else loading'>{{data}}</div>```
 
 ```<ng-template #loading>
@@ -963,7 +1018,7 @@ In Angular, you can control the size of an element in a component based on the w
 
 By following these steps, your Angular component will dynamically update the size of an element based on the window's resize event, allowing you to control the element's size responsively as the window dimensions change.
 
-### 26. **How would you control size of an element on resize of the window in a component using fxFlex?**
+### **How would you control size of an element on resize of the window in a component using fxFlex?**
 In Angular, you can use Angular Flex Layout (fxLayout and fxFlex) to control the size of an element responsively based on the window's resize. Here's how you can achieve this using `fxFlex`:
 
 1. **Install and Import Angular Flex Layout:**
@@ -1024,52 +1079,4 @@ By using Angular Flex Layout (`fxFlex` and `fxLayout`) and responsive breakpoint
 
 # General Questions
 
-### 26. **What is the difference between a smart component and dumb component in Angular? Give an example. What are the advantages of using each type of component?**
 
-In Angular, the concepts of "smart/container components" and "dumb/presentational components" are design patterns used to organize and separate the responsibilities of components in your application. These patterns help improve maintainability, reusability, and testability. Here are the key differences, use case examples, and advantages of each:
-
-**Smart/Container Components:**
-
-1. **Responsibilities:**
-   - Smart components are responsible for handling application logic, data manipulation, and interactions with services or APIs.
-   - They are often connected to the application's state management, such as NgRx or Angular services.
-   - Smart components manage the communication with child components, often by passing data and handling events.
-
-2. **Use Case Examples:**
-   - A user profile page that loads user data from an API and handles user-related actions, such as updating the user's profile.
-   - A product list component that fetches a list of products from a service, filters, and sorts them, and then passes the data to a dumb component for rendering.
-
-3. **Advantages:**
-   - Separation of Concerns: By offloading data and logic to smart components, you achieve a clear separation of concerns, making the code easier to maintain and understand.
-   - Testability: Smart components can be unit-tested more easily because they contain the core logic of your application.
-   - Reusability: Smart components can be reused in different parts of your application, sharing their logic and functionality.
-
-**Dumb/Presentational Components:**
-
-1. **Responsibilities:**
-   - Dumb components are primarily concerned with rendering the user interface and displaying data.
-   - They receive data and user interactions as input via Angular's `@Input` properties and `@Output` events.
-   - Dumb components should have no knowledge of how the data is fetched or manipulated.
-
-2. **Use Case Examples:**
-   - A button component that receives a label and emits a click event.
-   - A table row component that displays data received from a smart component and triggers events when the user interacts with it.
-
-3. **Advantages:**
-   - Reusability: Dumb components are highly reusable because they are concerned only with rendering and are agnostic to data sources.
-   - Testability: Dumb components are straightforward to test as they have clear inputs and outputs.
-   - Readability: Separating rendering from logic enhances code readability and makes it easier to identify the role of each component.
-
-**Advantages of Using These Patterns:**
-
-1. **Code Organization:** These patterns provide clear separation of concerns, making it easier to manage and maintain the codebase.
-
-2. **Reusability:** Dumb components can be reused across various parts of your application, and smart components can be used in different contexts.
-
-3. **Testability:** Components with well-defined responsibilities are easier to test, resulting in more reliable and maintainable tests.
-
-4. **Collaboration:** These patterns make it easier for multiple developers to work on different parts of the application concurrently, as the roles and responsibilities of each component are well-defined.
-
-5. **Scalability:** As your application grows, these patterns help maintain consistency and structure, making it easier to scale and add new features.
-
-In summary, the smart/container component pattern is used for managing logic and state, while the dumb/presentational component pattern is focused on rendering and user interface interactions. Separating these concerns enhances code quality, maintainability, and collaboration while improving reusability and testability.
