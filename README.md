@@ -676,6 +676,77 @@ Choosing between a pipe and a class method for modifying data to display in an A
 
 In summary, if your data transformation is tightly coupled with change detection and needs to be reactive to data changes, using a pipe is often a more convenient and efficient choice. Pipes are designed to handle these scenarios and are well-integrated with Angular's change detection system. On the other hand, if you need to apply the transformation manually, control performance, or have more complex, stateful logic, using a class method may be more appropriate. The choice between the two approaches should be made based on the specific needs of your application and the reactivity requirements of your data transformations.
 
+## Angular Routing
+
+### 16. **How would you protect a component being activated through the router?**
+
+To protect a component from being activated through the router in Angular, you can implement a guard. Guards are used to control access to specific routes or components in your application. In this case, you want to prevent the activation of a component under certain conditions. Here's how you can protect a component using a route guard:
+
+1. **Create a Route Guard:**
+   Start by creating a route guard. Angular provides several types of route guards, including `CanActivate`, `CanActivateChild`, `CanDeactivate`, and more. The specific guard you choose depends on your use case.
+
+   For example, let's create a `CanActivate` guard to protect a component:
+
+   ```bash
+   ng generate guard can-deactivate
+   ```
+
+   This command generates a `can-deactivate.guard.ts` file that you can use as the basis for your custom guard.
+
+2. **Implement the Guard Logic:**
+   Open the generated guard file (`can-deactivate.guard.ts`) and implement the guard logic. In this file, you'll define the conditions under which the component should be protected.
+
+   For example, you can check a condition and return `true` to allow activation or `false` to prevent it:
+
+   ```typescript
+   import { Injectable } from '@angular/core';
+   import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
+   import { Observable } from 'rxjs';
+
+   @Injectable({
+     providedIn: 'root'
+   })
+   export class CanDeactivateGuard implements CanActivate {
+     canActivate(
+       next: ActivatedRouteSnapshot,
+       state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+       // Implement your logic to determine if activation is allowed.
+       if (/* condition to protect the component */) {
+         // Prevent activation
+         return false;
+       }
+
+       // Allow activation
+       return true;
+     }
+   }
+   ```
+
+3. **Apply the Guard to the Route:**
+   Next, apply the guard to the route for which you want to protect the component. You can do this in your routing configuration (`app-routing.module.ts`).
+
+   ```typescript
+   import { CanDeactivateGuard } from './can-deactivate.guard';
+
+   const routes: Routes = [
+     {
+       path: 'protected',
+       component: ProtectedComponent,
+       canActivate: [CanDeactivateGuard] // Apply the guard to this route
+     },
+     // Other routes
+   ];
+   ```
+
+   In this example, the `CanDeactivateGuard` is applied to the route leading to the `ProtectedComponent`. The guard logic will be evaluated before the component is activated.
+
+4. **Customize the Guard Logic:**
+   In the guard's `canActivate` method, customize the logic to meet your specific requirements. You can check conditions, user roles, authentication status, or any other factors that determine whether the component should be protected.
+
+5. **Handle Unauthorized Access:**
+   If the guard logic determines that access to the component should be denied, you can return `false` or navigate the user to another route using `Router.navigate` to handle unauthorized access.
+
+By following these steps and customizing the guard logic, you can protect a component from being activated through the router in Angular, ensuring that it is only accessible under the desired conditions.
 
 ## Forms in Angular
 
@@ -762,3 +833,243 @@ In Angular, you can define transitions between two animation states using the An
 
    In this example, clicking an element can trigger the animation by changing the `animationState` between 'hidden' and 'visible.'
 
+### 25. **How do you define a wildcard state in an Angular animation?**
+In Angular's animations module, you can define a wildcard state using the `*` (asterisk) character. A wildcard state, often referred to as a catch-all state, allows you to apply a common animation to elements when their specific state transitions are not explicitly defined.
+
+## Code Examples
+### 25. **What does this code do and when would you use it versus using [ngClass] in the template?**
+
+```@HostBinding('class.valid') isValid;```
+
+This code is used to dynamically add or remove the CSS class "valid" to the host element of a directive based on the value of the `isValid` property. It's a way to conditionally apply a class to an element.
+
+When you use `@HostBinding`, it binds a class directly to the host element of a directive, and the class is added or removed based on the value of the associated property (`isValid` in this case). If `isValid` is `true`, the "valid" class will be added to the host element; if it's `false`, the class will be removed.
+
+Here's when you might choose to use `@HostBinding` over `[ngClass] in the template:
+
+**Use `@HostBinding` When:**
+
+1. **Simplicity and Direct Control:** `@HostBinding` provides a straightforward and direct way to conditionally apply a class based on a property value. It doesn't require additional template logic, making it more concise and easier to understand.
+
+2. **Performance:** `@HostBinding` can be more performant than `[ngClass] in some cases, as it doesn't rely on Angular's change detection for class manipulation. If you need to optimize the performance of your application, this can be a consideration.
+
+3. **Host Element:** When you specifically want to apply a class to the host element of a directive, `@HostBinding` is the appropriate choice, as it directly targets the host element.
+
+**Use `[ngClass] in the Template When:**
+
+1. **Complex Conditions:** If you have complex conditions that determine whether a class should be applied, `[ngClass]` in the template provides more flexibility. You can use a template expression to define multiple conditions and apply different classes accordingly.
+
+2. **Multiple Classes:** If you need to apply multiple classes based on various conditions, `[ngClass]` allows you to specify an object with class-condition mappings.
+
+3. **Template Interaction:** When the class application is based on user interactions or template-specific conditions, using `[ngClass]` directly in the template may be more appropriate because it's more visible and easier to manage.
+
+In summary, the choice between `@HostBinding` and `[ngClass] in the template depends on your specific use case and requirements. If you want a simple, direct, and possibly more performant way to apply a class to the host element of a directive based on a single property, `@HostBinding` is a suitable choice. If you need more complex class application logic, multiple class conditions, or interactions in the template, `[ngClass]` is more flexible and appropriate.
+
+### 25. **What does this code do?**
+```<div *ngIf='someObservableData | async as data; else loading'>{{data}}</div>```
+
+```<ng-template #loading>
+  Loading Data...
+</ng-template>```
+
+This code uses the `*ngIf` directive along with the `async` pipe and a template reference variable (`#loading`) to conditionally display content based on the status of an Observable data source.
+
+Here's a breakdown of what this code does:
+
+1. `<div *ngIf='someObservableData | async as data; else loading'>{{data}}</div>`:
+
+   - `someObservableData` is an Observable or a stream of data.
+   - The `async` pipe is used to subscribe to the `someObservableData` Observable and extract its emitted value.
+   - The `as data` part assigns the emitted value to the variable `data`.
+   - The `*ngIf` directive is used to conditionally render the `<div>`. If `someObservableData` has emitted a value (i.e., it's truthy), the `<div>` will be displayed. If it's falsy (e.g., not yet received data or an empty result), the template defined in the `else` block will be displayed.
+
+2. `<ng-template #loading>`:
+
+   - This is a template defined with a template reference variable `#loading`. The content inside the `<ng-template>` element will be displayed when the `*ngIf` condition is `false` (i.e., when `someObservableData` has not emitted a value yet).
+
+So, the code as a whole achieves the following:
+
+- It displays the content of the `data` variable when `someObservableData` emits a value.
+- It displays the "Loading Data..." message (defined in the `<ng-template>`) when `someObservableData` has not emitted a value or when it's falsy.
+
+This pattern is commonly used for displaying loading indicators while waiting for data to load asynchronously, improving user experience by providing feedback that data is being fetched. When the data becomes available, the loading message is replaced with the actual data.
+
+## Display Questions
+### 26. **How would you control size of an element on resize of the window in a component?**
+
+In Angular, you can control the size of an element in a component based on the window's resize event by following these steps:
+
+1. **Import Angular Dependencies:**
+   - Import the necessary Angular dependencies in your component.
+
+   ```typescript
+   import { Component, HostListener, OnInit } from '@angular/core';
+   ```
+
+2. **Create a Component Property:**
+   - Create a property in your component to store the size information that you want to control. For example, you can store the width and height of an element in an object.
+
+   ```typescript
+   export class YourComponent implements OnInit {
+     elementSize = {
+       width: 0,
+       height: 0
+     };
+
+     // Other component code...
+   }
+   ```
+
+3. **Add a Window Resize Event Listener:**
+   - Use the `@HostListener` decorator to add a window resize event listener to the component. This decorator listens for window resize events and calls a specified method when the window is resized.
+
+   ```typescript
+   @HostListener('window:resize', ['$event'])
+   onWindowResize(event: Event): void {
+     // Update the element size based on the window's size
+     this.updateElementSize();
+   }
+   ```
+
+4. **Create a Method to Update Element Size:**
+   - Create a method, such as `updateElementSize`, to update the size of the element based on the window's size. You can access the window's width and height using `window.innerWidth` and `window.innerHeight`.
+
+   ```typescript
+   updateElementSize(): void {
+     this.elementSize.width = window.innerWidth;
+     this.elementSize.height = window.innerHeight;
+
+     // Perform any additional calculations or adjustments here
+   }
+   ```
+
+5. **Call the Method on Component Initialization:**
+   - Call the `updateElementSize` method when the component initializes to set the initial element size.
+
+   ```typescript
+   ngOnInit(): void {
+     this.updateElementSize();
+   }
+   ```
+
+6. **Use the Element Size in the Template:**
+   - In your component's template, use the `elementSize` property to control the size of the element as needed. For example, you can bind to the element's `style` attribute or apply CSS classes dynamically based on the `elementSize` property.
+
+   ```html
+   <div [style.width.px]="elementSize.width" [style.height.px]="elementSize.height">
+     <!-- Your content goes here -->
+   </div>
+   ```
+
+By following these steps, your Angular component will dynamically update the size of an element based on the window's resize event, allowing you to control the element's size responsively as the window dimensions change.
+
+### 26. **How would you control size of an element on resize of the window in a component using fxFlex?**
+In Angular, you can use Angular Flex Layout (fxLayout and fxFlex) to control the size of an element responsively based on the window's resize. Here's how you can achieve this using `fxFlex`:
+
+1. **Install and Import Angular Flex Layout:**
+   - First, ensure that you have Angular Flex Layout installed in your Angular project. If it's not already installed, you can add it using npm or yarn:
+
+   ```bash
+   npm install @angular/flex-layout
+   ```
+
+   - Import the Flex Layout module in your app module or the module where you intend to use `fxFlex`.
+
+   ```typescript
+   import { FlexLayoutModule } from '@angular/flex-layout';
+
+   @NgModule({
+     imports: [FlexLayoutModule],
+     // ...
+   })
+   export class YourModule { }
+   ```
+
+2. **Use `fxFlex` Directive:**
+   - In your component's template, you can use the `fxFlex` directive to control the size of an element responsively.
+
+   ```html
+   <div fxFlex="50" fxLayout.gt-sm="row" fxLayout.lt-md="column">
+     <!-- Your content goes here -->
+   </div>
+   ```
+
+   - In this example, we're using `fxFlex="50"` to set the element to take up 50% of the available space by default.
+   - We also use `fxLayout.gt-sm="row"` and `fxLayout.lt-md="column"` to change the layout direction based on screen size. When the screen width is greater than small (gt-sm), it uses a row layout, and when it's less than medium (lt-md), it uses a column layout.
+
+3. **Add Flex Layout Responsive Breakpoints:**
+   - To use responsive breakpoints with Flex Layout (e.g., `gt-sm`, `lt-md`), make sure to include the `BreakpointObserver` service from the `@angular/cdk/layout` package in your component. You can import it like this:
+
+   ```typescript
+   import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+   ```
+
+   - You can then use the `BreakpointObserver` service to control the layout based on different screen sizes. For example:
+
+   ```typescript
+   constructor(private breakpointObserver: BreakpointObserver) {
+     breakpointObserver.observe([
+       Breakpoints.Handset, // for small screens
+       Breakpoints.Tablet,  // for tablets
+       Breakpoints.Web,     // for larger screens
+     ]).subscribe(result => {
+       if (result.matches) {
+         // Adjust layout here based on the breakpoint
+       }
+     });
+   }
+   ```
+
+By using Angular Flex Layout (`fxFlex` and `fxLayout`) and responsive breakpoints, you can easily control the size and layout of elements in your component based on the window's resize, resulting in a responsive and adaptive design.
+
+# General Questions
+
+### 26. **What is the difference between a smart component and dumb component in Angular? Give an example. What are the advantages of using each type of component?**
+
+In Angular, the concepts of "smart/container components" and "dumb/presentational components" are design patterns used to organize and separate the responsibilities of components in your application. These patterns help improve maintainability, reusability, and testability. Here are the key differences, use case examples, and advantages of each:
+
+**Smart/Container Components:**
+
+1. **Responsibilities:**
+   - Smart components are responsible for handling application logic, data manipulation, and interactions with services or APIs.
+   - They are often connected to the application's state management, such as NgRx or Angular services.
+   - Smart components manage the communication with child components, often by passing data and handling events.
+
+2. **Use Case Examples:**
+   - A user profile page that loads user data from an API and handles user-related actions, such as updating the user's profile.
+   - A product list component that fetches a list of products from a service, filters, and sorts them, and then passes the data to a dumb component for rendering.
+
+3. **Advantages:**
+   - Separation of Concerns: By offloading data and logic to smart components, you achieve a clear separation of concerns, making the code easier to maintain and understand.
+   - Testability: Smart components can be unit-tested more easily because they contain the core logic of your application.
+   - Reusability: Smart components can be reused in different parts of your application, sharing their logic and functionality.
+
+**Dumb/Presentational Components:**
+
+1. **Responsibilities:**
+   - Dumb components are primarily concerned with rendering the user interface and displaying data.
+   - They receive data and user interactions as input via Angular's `@Input` properties and `@Output` events.
+   - Dumb components should have no knowledge of how the data is fetched or manipulated.
+
+2. **Use Case Examples:**
+   - A button component that receives a label and emits a click event.
+   - A table row component that displays data received from a smart component and triggers events when the user interacts with it.
+
+3. **Advantages:**
+   - Reusability: Dumb components are highly reusable because they are concerned only with rendering and are agnostic to data sources.
+   - Testability: Dumb components are straightforward to test as they have clear inputs and outputs.
+   - Readability: Separating rendering from logic enhances code readability and makes it easier to identify the role of each component.
+
+**Advantages of Using These Patterns:**
+
+1. **Code Organization:** These patterns provide clear separation of concerns, making it easier to manage and maintain the codebase.
+
+2. **Reusability:** Dumb components can be reused across various parts of your application, and smart components can be used in different contexts.
+
+3. **Testability:** Components with well-defined responsibilities are easier to test, resulting in more reliable and maintainable tests.
+
+4. **Collaboration:** These patterns make it easier for multiple developers to work on different parts of the application concurrently, as the roles and responsibilities of each component are well-defined.
+
+5. **Scalability:** As your application grows, these patterns help maintain consistency and structure, making it easier to scale and add new features.
+
+In summary, the smart/container component pattern is used for managing logic and state, while the dumb/presentational component pattern is focused on rendering and user interface interactions. Separating these concerns enhances code quality, maintainability, and collaboration while improving reusability and testability.
