@@ -1,101 +1,94 @@
 This document is a collection of Angular interview questions for assessing potential front-end candidates. Note that it's not advisable to pose all these questions to a single candidate within a single interview session, as it would be too time-consuming. Instead, you should selectively choose a few questions from this list that align with the specific skills you seek to evaluate.
 
-It's worth emphasizing that a developer can proficiently work with Angular to create applications without necessarily knowing the answers to every question provided here.
+It's worth emphasizing that a developer can proficiently work with Angular to create applications without necessarily knowing the answers to every question provided here. Test
 
 - [Junior to Mid-Level Angular Questions](#junior-to-mid-level-angular-questions)
   - [Angular Basics](#angular-basics)
-    - [**What is Angular?**](#what-is-angular)
+    - [What is Angular?](#what-is-angular)
     - [Explain Angular's history](#explain-angulars-history)
-      - [AngularJS (1.x):](#angularjs-1x)
-      - [Angular 2+ (2 and beyond):](#angular-2-2-and-beyond)
     - [What are competitors of Angular, and what are their distinguishing features?](#what-are-competitors-of-angular-and-what-are-their-distinguishing-features)
-    - [**Explain the key building blocks of Angular.**](#explain-the-key-building-blocks-of-angular)
-    - [**What is data binding in Angular?**](#what-is-data-binding-in-angular)
+    - [Explain the key building blocks of Angular.](#explain-the-key-building-blocks-of-angular)
+    - [What is data binding in Angular?](#what-is-data-binding-in-angular)
   - [Angular Components](#angular-components)
-    - [**What is a component in Angular?**](#what-is-a-component-in-angular)
-      - [Anatomy of an Angular Component:](#anatomy-of-an-angular-component)
-      - [Key Characteristics of Angular Components:](#key-characteristics-of-angular-components)
-    - [**Explain lifecycle hooks in Angular.**](#explain-lifecycle-hooks-in-angular)
-      - [1. `ngOnChanges`:](#1-ngonchanges)
-      - [2. `ngOnInit`:](#2-ngoninit)
-      - [3. `ngAfterViewInit`:](#3-ngafterviewinit)
-      - [4. `ngOnDestroy`:](#4-ngondestroy)
-      - [5. `ngDoCheck`:](#5-ngdocheck)
-      - [6. `ngAfterContentInit` and `ngAfterContentChecked`:](#6-ngaftercontentinit-and-ngaftercontentchecked)
-      - [7. `ngAfterViewChecked`:](#7-ngafterviewchecked)
-    - [**What is the difference between a component's constructor and its ngOnInit lifecycle hook? Give an example of functionality that would be suited to be called in one versus the other.**](#what-is-the-difference-between-a-components-constructor-and-its-ngoninit-lifecycle-hook-give-an-example-of-functionality-that-would-be-suited-to-be-called-in-one-versus-the-other)
+    - [What is a component in Angular?](#what-is-a-component-in-angular)
+    - [Explain lifecycle hooks in Angular.](#explain-lifecycle-hooks-in-angular)
+    - [What is the difference between a component's constructor and its ngOnInit lifecycle hook? Give an example of functionality that would be suited to be called in one versus the other.](#what-is-the-difference-between-a-components-constructor-and-its-ngoninit-lifecycle-hook-give-an-example-of-functionality-that-would-be-suited-to-be-called-in-one-versus-the-other)
   - [Angular Services](#angular-services)
-    - [**What are Angular services?**](#what-are-angular-services)
-    - [**What is the difference between a singleton and non-singleton Angular service?**](#what-is-the-difference-between-a-singleton-and-non-singleton-angular-service)
-      - [Singleton Service:](#singleton-service)
-      - [Non-Singleton Service:](#non-singleton-service)
-    - [**How do you create a service in Angular?**](#how-do-you-create-a-service-in-angular)
+    - [What are Angular services?](#what-are-angular-services)
+    - [What is the difference between a singleton and non-singleton Angular service?](#what-is-the-difference-between-a-singleton-and-non-singleton-angular-service)
+    - [How do you create a service in Angular?](#how-do-you-create-a-service-in-angular)
   - [Angular Modules](#angular-modules)
-    - [**What is an Angular module?**](#what-is-an-angular-module)
-    - [**Give an example of how you would break an e-commerce Angular app into different modules?**](#give-an-example-of-how-you-would-break-an-e-commerce-angular-app-into-different-modules)
-    - [**What is lazy loading and why is it useful in Angular applications?**](#what-is-lazy-loading-and-why-is-it-useful-in-angular-applications)
-    - [**Describe how you would lazy load a module in an Angular application.**](#describe-how-you-would-lazy-load-a-module-in-an-angular-application)
+    - [What is an Angular module?](#what-is-an-angular-module)
+    - [Give an example of how you would break an e-commerce Angular app into different modules?](#give-an-example-of-how-you-would-break-an-e-commerce-angular-app-into-different-modules)
+    - [What is lazy loading and why is it useful in Angular applications?](#what-is-lazy-loading-and-why-is-it-useful-in-angular-applications)
+    - [Describe how you would lazy load a module in an Angular application.](#describe-how-you-would-lazy-load-a-module-in-an-angular-application)
   - [Angular Routing](#angular-routing)
-    - [**What is Angular routing?**](#what-is-angular-routing)
-    - [**Explain the difference between router parameters and query parameters.**](#explain-the-difference-between-router-parameters-and-query-parameters)
+    - [What is Angular routing?](#what-is-angular-routing)
+    - [Explain the difference between router parameters and query parameters.](#explain-the-difference-between-router-parameters-and-query-parameters)
   - [Angular Directives](#angular-directives)
-    - [**What are directives in Angular?**](#what-are-directives-in-angular)
-    - [**Differentiate between structural and attribute directives.**](#differentiate-between-structural-and-attribute-directives)
+    - [What are directives in Angular?](#what-are-directives-in-angular)
+    - [Differentiate between structural and attribute directives.](#differentiate-between-structural-and-attribute-directives)
   - [Angular Pipes](#angular-pipes)
-    - [**What are Angular pipes?**](#what-are-angular-pipes)
+    - [What are Angular pipes?](#what-are-angular-pipes)
   - [Template Questions](#template-questions)
-    - [**How can you use a class to change the color of a selected element (clicked on element) in a list component?**](#how-can-you-use-a-class-to-change-the-color-of-a-selected-element-clicked-on-element-in-a-list-component)
-    - [**What are different types of template binding in Angular and give an example for each.**](#what-are-different-types-of-template-binding-in-angular-and-give-an-example-for-each)
-    - [**What is the difference between ng-content, ng-container and ng- template?**](#what-is-the-difference-between-ng-content-ng-container-and-ng--template)
+    - [How can you use a class to change the color of a selected element (clicked on element) in a liscomponent?\*\*](#how-can-you-use-a-class-to-change-the-color-of-a-selected-element-clicked-on-element-in-a-liscomponent)
+    - [What are different types of template binding in Angular and give an example for each.](#what-are-different-types-of-template-binding-in-angular-and-give-an-example-for-each)
+    - [What is the difference between ng-content, ng-container and ng- template?](#what-is-the-difference-between-ng-content-ng-container-and-ng--template)
 - [Mid to Senior-Level Angular Questions](#mid-to-senior-level-angular-questions)
   - [Dependency Injection](#dependency-injection)
-    - [**What is dependency injection in Angular?**](#what-is-dependency-injection-in-angular)
-    - [**How does Angular's dependency injection compare to React's?**](#how-does-angulars-dependency-injection-compare-to-reacts)
+    - [What is dependency injection in Angular?](#what-is-dependency-injection-in-angular)
+    - [How does Angular's dependency injection compare to React's?](#how-does-angulars-dependency-injection-compare-to-reacts)
+    - [What is Hierarchical Dependency Injection in Angular?](#what-is-hierarchical-dependency-injection-in-angular)
+    - [What is a provider?](#what-is-a-provider)
   - [Components](#components)
-    - [**What is the difference between a smart component and dumb component in Angular? Give an example. What are the advantages of using each type of component?**](#what-is-the-difference-between-a-smart-component-and-dumb-component-in-angular-give-an-example-what-are-the-advantages-of-using-each-type-of-component)
+    - [What is the difference between a smart component and dumb component in Angular? Give an example. What are the advantages of using each type of component?](#what-is-the-difference-between-a-smart-component-and-dumb-component-in-angular-give-an-example-what-are-the-advantages-of-using-each-type-of-component)
   - [Pipes](#pipes)
-    - [**How would you create a custom pipe in Angular and use it?**](#how-would-you-create-a-custom-pipe-in-angular-and-use-it)
-    - [**How do you use Angular's async pipe and what functionality does it include?**](#how-do-you-use-angulars-async-pipe-and-what-functionality-does-it-include)
-    - [**When would you choose a class method over a pipe to transform displayed data?**](#when-would-you-choose-a-class-method-over-a-pipe-to-transform-displayed-data)
+    - [How would you create a custom pipe in Angular and use it?](#how-would-you-create-a-custom-pipe-in-angular-and-use-it)
+    - [How do you use Angular's async pipe and what functionality does it include?](#how-do-you-use-angulars-async-pipe-and-what-functionality-does-it-include)
+    - [When would you choose a class method over a pipe to transform displayed data?](#when-would-you-choose-a-class-method-over-a-pipe-to-transform-displayed-data)
   - [Angular Routing](#angular-routing-1)
-    - [**How would you protect a component being activated through the router?**](#how-would-you-protect-a-component-being-activated-through-the-router)
+    - [How would you protect a component being activated through the router?](#how-would-you-protect-a-component-being-activated-through-the-router)
   - [Forms in Angular](#forms-in-angular)
-    - [**Explain template-driven forms and reactive forms in Angular.**](#explain-template-driven-forms-and-reactive-forms-in-angular)
-    - [**How do you perform form validation in Angular?**](#how-do-you-perform-form-validation-in-angular)
+    - [Explain template-driven forms and reactive forms in Angular.](#explain-template-driven-forms-and-reactive-forms-in-angular)
+    - [How do you perform form validation in Angular?](#how-do-you-perform-form-validation-in-angular)
   - [Animation in Angular](#animation-in-angular)
-    - [**How do you define a transition between two animation states in Angular?**](#how-do-you-define-a-transition-between-two-animation-states-in-angular)
-    - [**How do you define a wildcard state in an Angular animation?**](#how-do-you-define-a-wildcard-state-in-an-angular-animation)
+    - [How do you define a transition between two animation states in Angular?](#how-do-you-define-a-transition-between-two-animation-states-in-angular)
+    - [How do you define a wildcard state in an Angular animation?](#how-do-you-define-a-wildcard-state-in-an-angular-animation)
   - [Template Questions](#template-questions-1)
-    - [**What does this code do and when would you use it versus using [ngClass] in the template?**](#what-does-this-code-do-and-when-would-you-use-it-versus-using-ngclass-in-the-template)
-    - [**What does this code do?**](#what-does-this-code-do)
-    - [**How would you control size of an element on resize of the window in a component?**](#how-would-you-control-size-of-an-element-on-resize-of-the-window-in-a-component)
-    - [**How would you control size of an element on resize of the window in a component using fxFlex?**](#how-would-you-control-size-of-an-element-on-resize-of-the-window-in-a-component-using-fxflex)
-    - [**What negative effects can happen if an observable is subscribed to multiple times using the async pipe in one template?**](#what-negative-effects-can-happen-if-an-observable-is-subscribed-to-multiple-times-using-the-async-pipe-in-one-template)
-    - [**Give a couple examples of the correct way to subscribe to an Observable via the async pipe within one template.**](#give-a-couple-examples-of-the-correct-way-to-subscribe-to-an-observable-via-the-async-pipe-within-one-template)
-    - [**What is the difference between property binding and attribute binding? When would you use one over the other?**](#what-is-the-difference-between-property-binding-and-attribute-binding-when-would-you-use-one-over-the-other)
-    - [**How would you select a css class in any ancestor of the component host element?**](#how-would-you-select-a-css-class-in-any-ancestor-of-the-component-host-element)
+    - [What does this code do and when would you use it versus using \[ngClass\] in the template?](#what-does-this-code-do-and-when-would-you-use-it-versus-using-ngclass-in-the-template)
+    - [What does this code do?](#what-does-this-code-do)
+    - [How would you use both ngFor and ngIf on an element?](#how-would-you-use-both-ngfor-and-ngif-on-an-element)
+    - [How would you control size of an element on resize of the window in a component?](#how-would-you-control-size-of-an-element-on-resize-of-the-window-in-a-component)
+    - [How would you control size of an element on resize of the window in a component using fxFlex?](#how-would-you-control-size-of-an-element-on-resize-of-the-window-in-a-component-using-fxflex)
+    - [What negative effects can happen if an observable is subscribed to multiple times using the asynpipe in one template?\*\*](#what-negative-effects-can-happen-if-an-observable-is-subscribed-to-multiple-times-using-the-asynpipe-in-one-template)
+    - [Give a couple examples of the correct way to subscribe to an Observable via the async pipe within ontemplate.\*\*](#give-a-couple-examples-of-the-correct-way-to-subscribe-to-an-observable-via-the-async-pipe-within-ontemplate)
+    - [What is the difference between property binding and attribute binding? When would you use one ovethe other?\*\*](#what-is-the-difference-between-property-binding-and-attribute-binding-when-would-you-use-one-ovethe-other)
+    - [How would you select a css class in any ancestor of the component host element?](#how-would-you-select-a-css-class-in-any-ancestor-of-the-component-host-element)
   - [Performance](#performance)
-    - [**What are some of the things that you pay attention to, to make sure your angular application is performant?**](#what-are-some-of-the-things-that-you-pay-attention-to-to-make-sure-your-angular-application-is-performant)
+    - [What are some of the things that you pay attention to, to make sure your angular application iperformant?\*\*](#what-are-some-of-the-things-that-you-pay-attention-to-to-make-sure-your-angular-application-iperformant)
   - [NgZone Questions](#ngzone-questions)
-    - [**How would you update the view if your model data is updated outside NgZone? Give an example of when data can be updated outside NgZone.**](#how-would-you-update-the-view-if-your-model-data-is-updated-outside-ngzone-give-an-example-of-when-data-can-be-updated-outside-ngzone)
+    - [How would you update the view if your model data is updated outside NgZone? Give an example of whedata can be updated outside NgZone.\*\*](#how-would-you-update-the-view-if-your-model-data-is-updated-outside-ngzone-give-an-example-of-whedata-can-be-updated-outside-ngzone)
 - [General Questions](#general-questions)
+  - [Architecture](#architecture)
+    - [What are some metrics of an Angular application that is well written with a robust architecture?](#what-are-some-metrics-of-an-angular-application-that-is-well-written-with-a-robust-architecture)
   - [Style Guide Questions](#style-guide-questions)
-    - [**What style guide do you follow, and why?**](#what-style-guide-do-you-follow-and-why)
+    - [What style guide do you follow, and why?](#what-style-guide-do-you-follow-and-why)
   - [Observables](#observables)
-    - [**What is the difference between and Observable and a Promise?**](#what-is-the-difference-between-and-observable-and-a-promise)
-    - [**Use RxJS to write an example to retrieve a user's post and then retrieve comments for each post.**](#use-rxjs-to-write-an-example-to-retrieve-a-users-post-and-then-retrieve-comments-for-each-post)
+    - [What is the difference between and Observable and a Promise?](#what-is-the-difference-between-and-observable-and-a-promise)
+    - [Use RxJS to write an example to retrieve a user's post and then retrieve comments for each post.](#use-rxjs-to-write-an-example-to-retrieve-a-users-post-and-then-retrieve-comments-for-each-post)
+
 
 
 # Junior to Mid-Level Angular Questions
 
 ## Angular Basics
 
-### **What is Angular?**
+### What is Angular?
 
    Angular is a TypeScript-based, open-source framework developed by Google. It offers a structured way to build dynamic web applications, making use of components, modules, services, and a powerful dependency injection system.
 
    Angular, commonly referred to as AngularJS or Angular 1.x, is a comprehensive open-source web application framework initially developed by Google. It has gone through significant changes and improvements, with Angular 2 and subsequent versions being the most widely adopted.
-   
+
    Here's an in-depth answer that covers the history of Angular and its competitors:
 
 ### Explain Angular's history
@@ -124,14 +117,14 @@ Since then, Angular has continued to evolve with regular updates and improvement
 
 Each of these competitors has its strengths and weaknesses, and the choice between them often depends on the specific needs of a project, developer preferences, and the existing tech stack. Angular, with its robust set of features and tools, is a strong contender in the web development ecosystem, particularly for large, enterprise-level applications.
 
-### **Explain the key building blocks of Angular.**
+### Explain the key building blocks of Angular.
    Angular applications are built using components, modules, services, and directives.
    - **Components:** Components are the basic building blocks of an Angular application. They encapsulate the UI and logic of a part of the application.
    - **Modules:** Modules help organize an Angular application into functional units. They group related components, services, and other code.
    - **Services:** Services provide shared functionality and data throughout the application. They can be injected into components or other services.
    - **Directives:** Directives are special markers in the DOM that tell Angular to do something with an element. Examples include `ngFor` and `ngIf`.
 
-### **What is data binding in Angular?**
+### What is data binding in Angular?
    Data binding in Angular allows automatic synchronization of data between the model and the view.
 
    **Answer:**
@@ -139,7 +132,7 @@ Each of these competitors has its strengths and weaknesses, and the choice betwe
 
 ## Angular Components
 
-### **What is a component in Angular?**
+### What is a component in Angular?
 An Angular component serves as a fundamental architectural unit within an Angular application. It encapsulates a specific section of the UI and the associated programmatic logic.
 
 #### Anatomy of an Angular Component:
@@ -193,7 +186,7 @@ An Angular component serves as a fundamental architectural unit within an Angula
 
 In summation, Angular components represent modular, reusable, and self-contained build blocks of an application. They blend the user interface with the logic required to govern it.
 
-### **Explain lifecycle hooks in Angular.**
+### Explain lifecycle hooks in Angular.
 Lifecycle hooks in Angular are predefined component class methods that allow you to tap into specific moments in a component's lifecycle. They offer opportunities to execute code at a specific phases, making it possible to perform various tasks as your component is created, updated, or destroyed. Here are some of the most common Angular lifecycle hooks and examples of when and why you'd use them:
 
 #### 1. `ngOnChanges`:
@@ -290,7 +283,7 @@ ngAfterViewChecked() {
 
 Each lifecycle hook serves a specific purpose in managing the component's lifecycle. By using them appropriately, you can ensure your Angular components are initialized, updated, and destroyed in a controlled manner, improving performance and resource management. These hooks are essential for tasks like setting up initial data, responding to user interactions, cleaning up resources, and ensuring the stability and efficiency of your application.
 
-### **What is the difference between a component's constructor and its ngOnInit lifecycle hook? Give an example of functionality that would be suited to be called in one versus the other.**
+### What is the difference between a component's constructor and its ngOnInit lifecycle hook? Give an example of functionality that would be suited to be called in one versus the other.
 
 **1. Constructor:**
 
@@ -331,10 +324,10 @@ In summary, the `constructor` is called when the component instance is created a
 
 ## Angular Services
 
-### **What are Angular services?**
+### What are Angular services?
    Services are used to share data and business logic between different parts of an application. They are typically singletons, meaning there's only one instance of a service throughout the application.
 
-### **What is the difference between a singleton and non-singleton Angular service?**
+### What is the difference between a singleton and non-singleton Angular service?
    The primary difference between a singleton service and a non-singleton service lies in their lifetime and whether they are application-wide.
 
 #### Singleton Service:
@@ -393,7 +386,7 @@ export class ShoppingCartService {
 
 In Angular, you can specify the service's scope (singleton or non-singleton) using the `providedIn` property when decorating the service with `@Injectable`. Using a singleton service when you need to share data or functionality across the entire application is efficient and avoids unnecessary overhead. On the other hand, non-singleton services are useful when you need separate instances to manage component-specific data or state. The choice between them depends on the specific requirements of your application.
 
-### **How do you create a service in Angular?**
+### How do you create a service in Angular?
    1. Create a service class using the Angular CLI or manually.
    2. Register the service in a module's `providers` array.
    3. Inject the service into a component or another service.
@@ -402,10 +395,10 @@ In Angular, you can specify the service's scope (singleton or non-singleton) usi
 
 ## Angular Modules
 
-### **What is an Angular module?**
+### What is an Angular module?
    An Angular module is a container for organizing components, services, directives, and other code. Modules help divide an Angular application into manageable parts. They declare what belongs to the application and provide a context for dependency injection.
 
-### **Give an example of how you would break an e-commerce Angular app into different modules?**
+### Give an example of how you would break an e-commerce Angular app into different modules?
    Dividing an Angular application into different modules is a common practice to maintain code organization, reusability, and maintainability. Angular provides a modular architecture that allows you to create separate modules for different parts of your application. Here's an example of how you might divide an Angular app into different modules:
 
 Suppose you are building an e-commerce application with the following sections:
@@ -499,10 +492,10 @@ export class AdminModule {}
 
 By dividing your Angular app into modules, you can keep your codebase organized, load only the necessary modules on demand, and facilitate team collaboration on different parts of the application. It also promotes reusability and makes your codebase more maintainable as it grows.
 
-### **What is lazy loading and why is it useful in Angular applications?**
+### What is lazy loading and why is it useful in Angular applications?
    Lazy loading is a technique in Angular that allows you to load modules only when they are needed, reducing the initial load time of your application. This is especially useful for large applications where you want to minimize the initial bundle size, which will improve the initial load time for users.
 
-### **Describe how you would lazy load a module in an Angular application.**
+### Describe how you would lazy load a module in an Angular application.
 Let's assume you have an Angular application with a feature module named "ProductsModule" that you want to lazy load. This module contains components and services related to product management.
 
 1. **Create the Feature Module (`products.module.ts`):**
@@ -582,19 +575,19 @@ With this setup, when a user navigates to the "products" route, Angular will dyn
 
 ## Angular Routing
 
-### **What is Angular routing?**
+### What is Angular routing?
    Angular's router enables navigation between views, making it possible to create single-page applications with multiple screens that can be bookmarked and linked to.
 
-### **Explain the difference between router parameters and query parameters.**
+### Explain the difference between router parameters and query parameters.
    - **Router parameters:** These are part of the route's URL and are used to pass data to a component when navigating.
    - **Query parameters:** These are optional and appear after the "?" in the URL. They are often used for filtering, sorting, or other non-essential data.
 
 ## Angular Directives
 
-### **What are directives in Angular?**
+### What are directives in Angular?
    Directives are markers on DOM elements that tell Angular to attach behavior or manipulate the DOM. They can be classified into three types: structural directives, attribute directives, and component directives.
 
-### **Differentiate between structural and attribute directives.**
+### Differentiate between structural and attribute directives.
    What's the difference between structural and attribute directives in Angular?
 
    **Answer:**
@@ -603,12 +596,12 @@ With this setup, when a user navigates to the "products" route, Angular will dyn
 
 ## Angular Pipes
 
-### **What are Angular pipes?**
+### What are Angular pipes?
 Angular pipes are a feature that allows you to transform and format data before it's displayed in the template. Pipes are used in Angular templates to apply common data manipulation tasks, such as formatting dates, numbers, and text, or filtering and sorting lists. Some commonly used built-in pipes are 'date', 'currency', 'uppercase', 'lowercase', 'percent'.
 
 ## Template Questions
 
-### **How can you use a class to change the color of a selected element (clicked on element) in a list component?**
+### How can you use a class to change the color of a selected element (clicked on element) in a liscomponent?**
 In Angular, you can use a class to change the color of a selected element in a list component by following these steps:
 
 1. **HTML Template:**
@@ -671,7 +664,7 @@ In Angular, you can use a class to change the color of a selected element in a l
 
 With these steps, when you click on an item in the list, the `selectItem` method updates the `selectedIndex`, and the "selected" class is applied to the selected item, changing its text color. You can adapt the CSS class and styling to meet your application's design requirements.
 
-### **What are different types of template binding in Angular and give an example for each.**
+### What are different types of template binding in Angular and give an example for each.
 In Angular, there are different types of template binding that allow you to interact with your templates and components. Here are the main types of template binding along with examples for each:
 
 1. **Interpolation Binding ({{ expression }}):**
@@ -745,7 +738,7 @@ In Angular, there are different types of template binding that allow you to inte
 
 These are the primary types of template binding in Angular, and they serve different purposes in manipulating the content and behavior of your templates. Depending on the use case, you can choose the appropriate type of binding to create dynamic and interactive Angular applications.
 
-### **What is the difference between ng-content, ng-container and ng- template?**
+### What is the difference between ng-content, ng-container and ng- template?
 `ng-content`, `ng-container`, and `ng-template` are structural directives used for managing the structure and content of components and templates:
 
 1. **`ng-content`**:
@@ -810,7 +803,7 @@ These elements and directives are essential for structuring and controlling the 
 
 ## Dependency Injection
 
-### **What is dependency injection in Angular?**
+### What is dependency injection in Angular?
 In Angular, the Dependency Injection (DI) system is built around the concept of Inversion of Control (IoC). Instead of a component creating its own dependencies, Angular's DI system manages and provides these dependencies. It has several key components:
 
 1. **Providers:** Providers are responsible for creating and configuring instances of services and other objects. They are usually defined in the `providers` array of a module or component.
@@ -876,7 +869,7 @@ export class AppModule {}
 
 In this example, the `UserProfileComponent` uses Dependency Injection to request the `UserService` as a dependency. Angular's Injector system takes care of providing the appropriate instance of the `UserService`. This not only promotes code reusability but also allows for easier testing, as you can provide mock services during unit tests.
 
-### **How does Angular's dependency injection compare to React's?**
+### How does Angular's dependency injection compare to React's?
 
 In React, dependency injection is not part of the framework itself, but it can be achieved through other means:
 
@@ -886,8 +879,83 @@ In React, dependency injection is not part of the framework itself, but it can b
 
 Angular's Dependency Injection system provides a more structured and automatic way of managing and providing dependencies. React, on the other hand, gives you more flexibility to choose your preferred method for dependency management, but it requires more manual effort to set up and maintain the injection of dependencies. Each approach has its own advantages and may be better suited to different project requirements and developer preferences.
 
+### What is Hierarchical Dependency Injection in Angular?
+Hierarchical Dependency Injection (DI) in Angular is a concept that defines how dependencies (services) are provided and shared among components and services in an Angular application. Angular's DI system is hierarchical, which means that it forms a tree-like structure that mirrors the component hierarchy of the application. Understanding this hierarchy is essential for managing and scoping services and ensuring that components and services receive the appropriate instances of their dependencies.
+
+Here's how hierarchical DI works in Angular:
+
+1. **Root Injector**: At the top of the hierarchy is the root injector. This injector provides and manages application-wide services. These services are singletons, and there is only one instance of each service throughout the application. You configure these services in the `providers` array of the `AppModule`.
+
+2. **Component-Specific Injectors**: Each component in the application has its own injector that is a child of the root injector. When a component is created, its injector can access services provided by the root injector and also create its own services or override services from its parent injector. Component-specific services are scoped to the component and its children, meaning that different instances of the same service can exist for different branches of the component tree.
+
+3. **Service Scopes**: Services can be registered at the root level (global) or at the component level (local). When a service is registered with a component, it is scoped to that component and its descendants. Services registered at the root level are available to the entire application. The choice of service scope depends on the desired behavior and use case.
+
+4. **Dependency Resolution**: When a component or service requests a dependency, Angular's DI system looks for it in the current injector's scope first. If it doesn't find the dependency, it traverses up the hierarchy to the root injector. This ensures that the correct instance of the service is injected based on the component's position in the hierarchy.
+
+Hierarchical DI allows you to:
+
+- Share common services globally across the application.
+- Create services specific to a component and its descendants.
+- Override services at the component level without affecting other parts of the application.
+- Manage the lifecycle and scope of services according to their usage.
+
+Overall, hierarchical DI provides a structured and efficient way to manage dependencies in Angular applications, ensuring that services are appropriately scoped and shared among components and services based on their position in the component tree.
+
+### What is a provider?
+In Angular, a provider is a fundamental concept related to Dependency Injection (DI). A provider is responsible for creating and managing instances of services, which are a fundamental building block in Angular applications. Providers define how services are instantiated, configured, and scoped within the application. You can think of providers as the instructions for the DI system on how to create and manage service instances.
+
+There are several ways to configure providers in Angular:
+
+1. **UseClass**:
+   - `useClass` specifies a class that should be used to create instances of the service. It's a straightforward way to provide a service class.
+
+   ```typescript
+   { provide: MyService, useClass: MyServiceImpl }
+   ```
+
+2. **UseValue**:
+   - `useValue` allows you to provide an instance of the service directly. This is useful when you want to provide a specific object as a service.
+
+   ```typescript
+   { provide: MyService, useValue: myServiceInstance }
+   ```
+
+3. **UseFactory**:
+   - `useFactory` defines a factory function that constructs and returns the service instance. This is useful when you need custom logic to create a service.
+
+   ```typescript
+   { provide: MyService, useFactory: () => createMyService() }
+   ```
+
+4. **UseExisting**:
+   - `useExisting` points to an existing service provider and essentially shares an instance of one service as another service.
+
+   ```typescript
+   { provide: OldService, useExisting: NewService }
+   ```
+
+5. **UseClass for Multi Providers**:
+   - When providing multiple implementations for a service, you can use an array of `useClass` entries. This creates a multi-provider.
+
+   ```typescript
+   { provide: MyMultiService, useClass: FirstImplementation, multi: true },
+   { provide: MyMultiService, useClass: SecondImplementation, multi: true }
+   ```
+
+6. **Aliasing**:
+   - You can alias providers for clarity or to create more descriptive names for services.
+
+   ```typescript
+   { provide: Logger, useClass: ConsoleLogger }
+   ```
+
+7. **SkipSelf and Self**:
+   - These providers can be used to specify how the DI system resolves dependencies when there are multiple instances of the same service in the hierarchy. `Self` instructs the DI system to look for dependencies only in the current injector, while `SkipSelf` skips the current injector and looks in parent injectors.
+
+Providers are typically configured in the `providers` array of Angular modules or component metadata. This array specifies how the DI system should create, configure, and manage instances of services used within the application. Understanding how to configure providers is essential for controlling the behavior and lifecycle of services in Angular.
+
 ## Components
-### **What is the difference between a smart component and dumb component in Angular? Give an example. What are the advantages of using each type of component?**
+### What is the difference between a smart component and dumb component in Angular? Give an example. What are the advantages of using each type of component?
 
 In Angular, the concepts of "smart/container components" and "dumb/presentational components" are design patterns used to organize and separate the responsibilities of components in your application. These patterns help improve maintainability, reusability, and testability. Here are the key differences, use case examples, and advantages of each:
 
@@ -939,7 +1007,7 @@ In summary, the smart/container component pattern is used for managing logic and
 
 ## Pipes
 
-### **How would you create a custom pipe in Angular and use it?**
+### How would you create a custom pipe in Angular and use it?
 Creating a custom Angular pipe allows you to define a specific data transformation that suits your application's needs. Here's an example of creating and using a custom pipe that capitalizes the first letter of a string:
 
 1. **Create the Custom Pipe:**
@@ -995,8 +1063,8 @@ Creating a custom Angular pipe allows you to define a specific data transformati
 By creating and using custom pipes, you can tailor your data transformations to meet the specific requirements of your application, enhancing the readability and user-friendliness of your templates.
 
      ```
-### **How do you use Angular's async pipe and what functionality does it include?**
-Angular's `async` pipe is a built-in pipe that simplifies working with asynchronous data streams, such as Observables and Promises, in Angular templates. It is a powerful tool for handling data that may arrive asynchronously from the server or user interactions. The `async` pipe automatically subscribes to the provided asynchronous source and unwraps the values, making them available in the template. 
+### How do you use Angular's async pipe and what functionality does it include?
+Angular's `async` pipe is a built-in pipe that simplifies working with asynchronous data streams, such as Observables and Promises, in Angular templates. It is a powerful tool for handling data that may arrive asynchronously from the server or user interactions. The `async` pipe automatically subscribes to the provided asynchronous source and unwraps the values, making them available in the template.
 
 Here's how you use the `async` pipe and the functionality it includes:
 
@@ -1030,7 +1098,7 @@ Here's how you use the `async` pipe and the functionality it includes:
 
    The `async` pipe simplifies working with asynchronous data in Angular applications, making it a convenient tool for handling observables, promises, and other asynchronous data sources. It's a best practice for dealing with asynchronous data in Angular templates, as it helps ensure proper management of subscriptions and up-to-date UI representations.
 
-### **When would you choose a class method over a pipe to transform displayed data?**
+### When would you choose a class method over a pipe to transform displayed data?
 Choosing between a pipe and a class method for modifying data to display in an Angular template also depends on whether the data transformation occurs every time change detection is triggered. Here are additional considerations in that context:
 
 **Using a Pipe:**
@@ -1045,7 +1113,7 @@ Choosing between a pipe and a class method for modifying data to display in an A
 
 **Using a Class Method:**
 
-- **Manual Updates:** When using a class method, you may need to manually call the method and update the template when data changes. This approach can be more suitable for situations where you have fine-grained control over when and how the transformation is applied. 
+- **Manual Updates:** When using a class method, you may need to manually call the method and update the template when data changes. This approach can be more suitable for situations where you have fine-grained control over when and how the transformation is applied.
 
 - **Performance Control:** If the data transformation is resource-intensive and occurs every time change detection runs, using a class method can give you more control over performance. You can choose when to invoke the transformation method, potentially optimizing performance.
 
@@ -1053,7 +1121,7 @@ In summary, if your data transformation is tightly coupled with change detection
 
 ## Angular Routing
 
-### **How would you protect a component being activated through the router?**
+### How would you protect a component being activated through the router?
 
 To protect a component from being activated through the router in Angular, you can implement a guard. Guards are used to control access to specific routes or components in your application. In this case, you want to prevent the activation of a component under certain conditions. Here's how you can protect a component using a route guard:
 
@@ -1125,21 +1193,21 @@ By following these steps and customizing the guard logic, you can protect a comp
 
 ## Forms in Angular
 
-### **Explain template-driven forms and reactive forms in Angular.**
+### Explain template-driven forms and reactive forms in Angular.
    What are template-driven forms and reactive forms, and when should you use each?
 
    **Answer:**
    - **Template-driven forms:** These forms are built using templates with two-way data binding. They are suitable for simple forms and are easier to set up.
    - **Reactive forms:** These forms are built programmatically and offer more flexibility and control. They are ideal for complex forms and validation requirements.
 
-### **How do you perform form validation in Angular?**
+### How do you perform form validation in Angular?
    Describe the methods and techniques for form validation in Angular.
 
    **Answer:**
    Angular provides both template-driven and reactive forms with built-in validation features. You can use template-based validation attributes like `required` or set up custom validators in reactive forms using the `Validators` class.
 
 ## Animation in Angular
-### **How do you define a transition between two animation states in Angular?**
+### How do you define a transition between two animation states in Angular?
 In Angular, you can define transitions between two animation states using the Angular Animations module. This module provides a powerful and declarative way to create animations and transitions in your Angular application. To define transitions between two animation states, you'll typically use the `trigger`, `state`, `transition`, and `animate` functions. Here's how to do it:
 
 1. **Import the Angular Animations Module:**
@@ -1208,11 +1276,11 @@ In Angular, you can define transitions between two animation states using the An
 
    In this example, clicking an element can trigger the animation by changing the `animationState` between 'hidden' and 'visible.'
 
-### **How do you define a wildcard state in an Angular animation?**
+### How do you define a wildcard state in an Angular animation?
 In Angular's animations module, you can define a wildcard state using the `*` (asterisk) character. A wildcard state, often referred to as a catch-all state, allows you to apply a common animation to elements when their specific state transitions are not explicitly defined.
 
 ## Template Questions
-### **What does this code do and when would you use it versus using [ngClass] in the template?**
+### What does this code do and when would you use it versus using [ngClass] in the template?
 
 ```@HostBinding('class.valid') isValid;```
 
@@ -1240,9 +1308,9 @@ Here's when you might choose to use `@HostBinding` over `[ngClass] in the templa
 
 In summary, the choice between `@HostBinding` and `[ngClass]` in the template depends on your specific use case and requirements. If you want a simple, direct, and possibly more performant way to apply a class to the host element of a directive based on a single property, `@HostBinding` is a suitable choice. If you need more complex class application logic, multiple class conditions, or interactions in the template, `[ngClass]` is more flexible and appropriate.
 
-### **What does this code do?**
+### What does this code do?
 ```<div *ngIf='someObservableData | async as data; else loading'>{{data}}</div>```
-   
+
 ```<ng-template #loading>Loading Data...</ng-template>```
 
 This code uses the `*ngIf` directive along with the `async` pipe and a template reference variable (`#loading`) to conditionally display content based on the status of an Observable data source.
@@ -1267,7 +1335,29 @@ So, the code as a whole achieves the following:
 
 This pattern is commonly used for displaying loading indicators while waiting for data to load asynchronously, improving user experience by providing feedback that data is being fetched. When the data becomes available, the loading message is replaced with the actual data.
 
-### **How would you control size of an element on resize of the window in a component?**
+### How would you use both ngFor and ngIf on an element?
+Angular does not support more than one structural directive on one element. So you would need to use ng-container, applying the directives sequentially. In this example, you can conditionally render a list of elements while applying additional conditions to individual items in the list.
+
+```html
+<div>
+  <ng-container *ngIf="condition">
+    <div *ngFor="let item of items">
+      <!-- Your HTML content here -->
+      <p>{{ item.text }}</p>
+    </div>
+  </ng-container>
+</div>
+```
+
+In this updated example:
+
+1. We have a conditional check using `*ngIf` within an `<ng-container>` to determine whether the list should be displayed.
+
+2. Inside the `<ng-container>`, we use `*ngFor` to iterate through the `items` array if the `condition` is truthy.
+
+This way, the list of items will only be displayed if the `condition` is met, and you can control the rendering of the list based on the result of the `*ngIf` directive.
+
+### How would you control size of an element on resize of the window in a component?
 
 In Angular, you can control the size of an element in a component based on the window's resize event by following these steps:
 
@@ -1335,7 +1425,7 @@ In Angular, you can control the size of an element in a component based on the w
 
 By following these steps, your Angular component will dynamically update the size of an element based on the window's resize event, allowing you to control the element's size responsively as the window dimensions change.
 
-### **How would you control size of an element on resize of the window in a component using fxFlex?**
+### How would you control size of an element on resize of the window in a component using fxFlex?
 In Angular, you can use Angular Flex Layout (fxLayout and fxFlex) to control the size of an element responsively based on the window's resize. Here's how you can achieve this using `fxFlex`:
 
 1. **Install and Import Angular Flex Layout:**
@@ -1394,7 +1484,7 @@ In Angular, you can use Angular Flex Layout (fxLayout and fxFlex) to control the
 
 By using Angular Flex Layout (`fxFlex` and `fxLayout`) and responsive breakpoints, you can easily control the size and layout of elements in your component based on the window's resize, resulting in a responsive and adaptive design.
 
-### **What negative effects can happen if an observable is subscribed to multiple times using the async pipe in one template?**
+### What negative effects can happen if an observable is subscribed to multiple times using the asynpipe in one template?**
 When you subscribe to a data source multiple times using the `async` pipe in Angular, you may encounter unexpected behavior. The `async` pipe is designed to automatically handle the management of subscriptions and data emitted by an Observable or a Promise. When you subscribe to a data source multiple times, these issues may appear:
 
 1. **Multiple Subscriptions:** Each time you use the `async` pipe, it internally subscribes to the data source. If you use it multiple times in your template, you'll create multiple subscriptions to the same data source. This can lead to performance issues and memory leaks.
@@ -1405,7 +1495,7 @@ When you subscribe to a data source multiple times using the `async` pipe in Ang
 
 To avoid these problems, it's recommended to use the `async` pipe only once in your template for a given data source. If you need to display the same data in multiple parts of your template, consider using Angular's built-in mechanisms, such as `*ngFor` for lists or Angular services to share the data among components. These approaches ensure that you have a single subscription, which is automatically managed by the `async` pipe and helps maintain a clean and predictable component lifecycle.
 
-### **Give a couple examples of the correct way to subscribe to an Observable via the async pipe within one template.**
+### Give a couple examples of the correct way to subscribe to an Observable via the async pipe within ontemplate.**
 An observable can essentially be subscribed to multiple times by storing the observable result in template reference variables and then binding to these reference variables. Here are a couple of examples:
 
 1. **Using Template Reference Variables:**
@@ -1434,7 +1524,7 @@ An observable can essentially be subscribed to multiple times by storing the obs
 </div>
 ```
 
-### **What is the difference between property binding and attribute binding? When would you use one over the other?**
+### What is the difference between property binding and attribute binding? When would you use one ovethe other?**
 
 **Property Binding:**
 
@@ -1474,7 +1564,7 @@ In most cases, property binding is the preferred choice because it enables dynam
 
 Remember that Angular automatically handles property binding through elements like input fields, making it the natural choice for most data-binding scenarios.
 
-From https://angular.io/guide/binding-syntax:  
+From https://angular.io/guide/binding-syntax:
 Though you could technically set the [attr.disabled] attribute binding, the values are different in that the property binding must be a boolean value, while its corresponding attribute binding relies on whether the value is null or not. Consider the following:
 
 ```
@@ -1485,7 +1575,7 @@ Though you could technically set the [attr.disabled] attribute binding, the valu
 The first line, which uses the disabled property, uses a boolean value. The second line, which uses the disabled attribute checks for null.
 Generally, use property binding over attribute binding as a boolean value is easy to read, the syntax is shorter, and a property is more performant.
 
-### **How would you select a css class in any ancestor of the component host element?**
+### How would you select a css class in any ancestor of the component host element?
 To select a CSS class in any ancestor of the component's host element, all the way up to the document root in Angular, you can use the `:host-context` selector. The `:host-context` selector allows you to apply styles based on the presence of a class on an ancestor element. Here's how you can use it:
 
 Assuming you have a CSS class that you want to select in any ancestor element:
@@ -1522,7 +1612,7 @@ The `:host-context` selector allows you to apply styles based on the presence of
 
 ## Performance
 
-### **What are some of the things that you pay attention to, to make sure your angular application is performant?**
+### What are some of the things that you pay attention to, to make sure your angular application iperformant?**
 To ensure that your Angular application is performant, you need to pay attention to various aspects of development, including both front-end and back-end considerations. Here are some key areas to focus on:
 
 1. **Optimizing Bundle Size**:
@@ -1593,10 +1683,10 @@ To ensure that your Angular application is performant, you need to pay attention
 
 ## NgZone Questions
 
-### **How would you update the view if your model data is updated outside NgZone? Give an example of when data can be updated outside NgZone.**
+### How would you update the view if your model data is updated outside NgZone? Give an example of whedata can be updated outside NgZone.**
 In Angular, the view is updated as a result of changes to the application model, and this update typically occurs within the NgZone, which is a fundamental part of Angular's change detection mechanism. The NgZone ensures that change detection is triggered and the view is updated when model data changes.
 
-However, there are situations where model data can be updated outside of the NgZone, and in such cases, you may need to explicitly trigger change detection to update the view. 
+However, there are situations where model data can be updated outside of the NgZone, and in such cases, you may need to explicitly trigger change detection to update the view.
 
 When using charting libraries like Chart.js in an Angular application, you may encounter scenarios where data is updated outside the Angular context, such as through asynchronous operations, external data sources, or libraries that don't inherently trigger Angular's change detection. Here's an example of updating a Chart.js chart when data is updated outside the Angular context:
 
@@ -1666,9 +1756,76 @@ It's important to note that while using `ngZone.run()` is a way to handle update
 
 # General Questions
 
+## Architecture
+
+### What are some metrics of an Angular application that is well written with a robust architecture?
+Well-written code and excellent architecture in an Angular application can be evaluated based on various metrics and best practices:
+
+**1. Maintainability:**
+   - Code should be easy to read, understand, and maintain. Complex logic should be well-documented and organized.
+
+**2. Modularity:**
+   - Code should be organized into small, self-contained modules that promote reusability and separation of concerns.
+
+**3. Scalability:**
+   - Architecture should support the growth of the application without major refactoring. Lazy loading and feature modules can aid in scalability.
+
+**4. Testability:**
+   - Code should be designed with testing in mind. Unit tests and end-to-end tests should be easy to write and maintain.
+
+**5. Code Consistency:**
+   - Consistent naming conventions, coding style, and folder structure make code more readable and maintainable.
+
+**6. Performance:**
+   - Code should be optimized for performance, and unnecessary computations or rendering should be minimized.
+
+**7. Error Handling:**
+   - Robust error handling should be implemented to provide meaningful error messages and graceful error recovery.
+
+**8. Code Reusability:**
+   - Reusable components, services, and modules can save development time and improve code quality.
+
+**9. Separation of Concerns:**
+   - Code should separate business logic, presentation, and data access concerns to maintain a clean architecture.
+
+**10. Dependency Injection:**
+    - Proper use of Angular's dependency injection for services and components, promoting a modular and testable design.
+
+**11. Routing and Navigation:**
+    - Well-structured routing and navigation should provide a clear user flow and allow for deep linking.
+
+**12. Data Management:**
+    - Data should be managed efficiently using state management solutions like NgRx or RxJS, where appropriate.
+
+**13. Security:**
+    - Implement security best practices to protect against common vulnerabilities like XSS and CSRF.
+
+**14. Documentation:**
+    - Code should be well-documented with meaningful comments, and API documentation should be available for components and services.
+
+**15. Accessibility:**
+    - Ensure that the application is accessible to all users, including those with disabilities.
+
+**16. Internationalization (i18n):**
+    - Support for multiple languages and locales should be considered if the application targets a global audience.
+
+**17. Performance Profiling:**
+    - Use performance profiling tools to identify bottlenecks, memory leaks, and rendering issues.
+
+**18. Code Reviews:**
+    - Conduct code reviews to catch issues early and maintain code quality.
+
+**19. Continuous Integration/Continuous Deployment (CI/CD):**
+    - Implement CI/CD pipelines to automate testing, building, and deployment processes.
+
+**20. Version Control:**
+    - Proper use of version control systems (e.g., Git) with clear branching and commit strategies.
+
+These metrics and characteristics reflect the principles of good software engineering and architecture, ensuring that an Angular application is maintainable, scalable, and performant while meeting functional and non-functional requirements.
+
 ## Style Guide Questions
 
-### **What style guide do you follow, and why?**
+### What style guide do you follow, and why?
 I use the Airbnb TypeScript Style Guide. It's widely adopted in the TypeScript and JavaScript development community for several reasons.
 
 1. **Consistency**: The style guide provides a set of rules and conventions that lead to consistent code formatting and structure. This consistency is crucial for teams working on large codebases, making code easier to read, maintain, and collaborate on.
@@ -1689,7 +1846,7 @@ It's important to note that while the Airbnb style guide has significant advanta
 
 ## Observables
 
-### **What is the difference between and Observable and a Promise?**
+### What is the difference between and Observable and a Promise?
 **Observables** and **Promises** are both mechanisms for handling asynchronous operations in JavaScript and are commonly used in Angular for managing asynchronous data. Here are the key differences between the two:
 
 **1. Multiple Values vs. Single Value:**
@@ -1754,7 +1911,7 @@ It's important to note that while the Airbnb style guide has significant advanta
 
 In Angular, you can often choose between observables and promises when working with asynchronous operations, but observables are more powerful and versatile when handling complex and continuous data streams. The choice between the two depends on the specific requirements of your application and the nature of the asynchronous tasks you need to perform.
 
-### **Use RxJS to write an example to retrieve a user's post and then retrieve comments for each post.**
+### Use RxJS to write an example to retrieve a user's post and then retrieve comments for each post.
 In Angular, you can use RxJS to retrieve a user's posts and then retrieve comments for each post by using the `HttpClient` module to make HTTP requests:
 
 
