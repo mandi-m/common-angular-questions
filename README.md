@@ -5,7 +5,7 @@ It's worth emphasizing that a developer can proficiently work with Angular to cr
 - [Junior to Mid-Level Angular Questions](#junior-to-mid-level-angular-questions)
   - [Angular Basics](#angular-basics)
     - [What is Angular?](#what-is-angular)
-    - [Explain Angular's history](#explain-angulars-history)
+    - [Explain Angular's history.](#explain-angulars-history)
     - [What are competitors of Angular, and what are their distinguishing features?](#what-are-competitors-of-angular-and-what-are-their-distinguishing-features)
     - [Explain the key building blocks of Angular.](#explain-the-key-building-blocks-of-angular)
     - [What is data binding in Angular?](#what-is-data-binding-in-angular)
@@ -19,7 +19,7 @@ It's worth emphasizing that a developer can proficiently work with Angular to cr
     - [How do you create a service in Angular?](#how-do-you-create-a-service-in-angular)
   - [Angular Modules](#angular-modules)
     - [What is an Angular module?](#what-is-an-angular-module)
-    - [Give an example of how you would break an e-commerce Angular app into different modules?](#give-an-example-of-how-you-would-break-an-e-commerce-angular-app-into-different-modules)
+    - [Give an example of how you would break an e-commerce Angular app into different modules.](#give-an-example-of-how-you-would-break-an-e-commerce-angular-app-into-different-modules)
     - [What is lazy loading and why is it useful in Angular applications?](#what-is-lazy-loading-and-why-is-it-useful-in-angular-applications)
     - [Describe how you would lazy load a module in an Angular application.](#describe-how-you-would-lazy-load-a-module-in-an-angular-application)
   - [Angular Routing](#angular-routing)
@@ -60,13 +60,14 @@ It's worth emphasizing that a developer can proficiently work with Angular to cr
     - [How would you use both ngFor and ngIf on an element?](#how-would-you-use-both-ngfor-and-ngif-on-an-element)
     - [How would you control size of an element on resize of the window in a component?](#how-would-you-control-size-of-an-element-on-resize-of-the-window-in-a-component)
     - [How would you control size of an element on resize of the window in a component using fxFlex?](#how-would-you-control-size-of-an-element-on-resize-of-the-window-in-a-component-using-fxflex)
-    - [What negative effects can happen if an observable is subscribed to multiple times using the asynpipe in one template?\*\*](#what-negative-effects-can-happen-if-an-observable-is-subscribed-to-multiple-times-using-the-asynpipe-in-one-template)
+    - [What negative effects can happen if an observable is subscribed to multiple times using the asynpipe in one template?](#what-negative-effects-can-happen-if-an-observable-is-subscribed-to-multiple-times-using-the-asynpipe-in-one-template)
     - [Give a couple examples of the correct way to subscribe to an Observable via the async pipe within ontemplate.\*\*](#give-a-couple-examples-of-the-correct-way-to-subscribe-to-an-observable-via-the-async-pipe-within-ontemplate)
-    - [What is the difference between property binding and attribute binding? When would you use one ovethe other?\*\*](#what-is-the-difference-between-property-binding-and-attribute-binding-when-would-you-use-one-ovethe-other)
+    - [What is the difference between property binding and attribute binding? When would you use one over the other?](#what-is-the-difference-between-property-binding-and-attribute-binding-when-would-you-use-one-over-the-other)
+    - [What is the purpose of ngFor trackBy?](#what-is-the-purpose-of-ngfor-trackby)
     - [How would you select a css class in any ancestor of the component host element?](#how-would-you-select-a-css-class-in-any-ancestor-of-the-component-host-element)
   - [Performance](#performance)
-    - [What are some of the things that you pay attention to, to make sure your angular application iperformant?\*\*](#what-are-some-of-the-things-that-you-pay-attention-to-to-make-sure-your-angular-application-iperformant)
-  - [NgZone Questions](#ngzone-questions)
+    - [What are some things you can pay attention to, to make sure your angular application is performant?](#what-are-some-things-you-can-pay-attention-to-to-make-sure-your-angular-application-is-performant)
+  - [NgZone](#ngzone)
     - [How would you update the view if your model data is updated outside NgZone? Give an example of whedata can be updated outside NgZone.\*\*](#how-would-you-update-the-view-if-your-model-data-is-updated-outside-ngzone-give-an-example-of-whedata-can-be-updated-outside-ngzone)
 - [General Questions](#general-questions)
   - [Architecture](#architecture)
@@ -91,7 +92,7 @@ It's worth emphasizing that a developer can proficiently work with Angular to cr
 
    Here's an in-depth answer that covers the history of Angular and its competitors:
 
-### Explain Angular's history
+### Explain Angular's history.
 
 #### AngularJS (1.x):
 AngularJS was first introduced by Google in 2010 as a JavaScript-based front-end framework. It aimed to simplify web development by offering a declarative way to build dynamic web applications. Key features of AngularJS included two-way data binding, dependency injection, and the use of directives to extend HTML.
@@ -398,7 +399,7 @@ In Angular, you can specify the service's scope (singleton or non-singleton) usi
 ### What is an Angular module?
    An Angular module is a container for organizing components, services, directives, and other code. Modules help divide an Angular application into manageable parts. They declare what belongs to the application and provide a context for dependency injection.
 
-### Give an example of how you would break an e-commerce Angular app into different modules?
+### Give an example of how you would break an e-commerce Angular app into different modules.
    Dividing an Angular application into different modules is a common practice to maintain code organization, reusability, and maintainability. Angular provides a modular architecture that allows you to create separate modules for different parts of your application. Here's an example of how you might divide an Angular app into different modules:
 
 Suppose you are building an e-commerce application with the following sections:
@@ -1484,7 +1485,7 @@ In Angular, you can use Angular Flex Layout (fxLayout and fxFlex) to control the
 
 By using Angular Flex Layout (`fxFlex` and `fxLayout`) and responsive breakpoints, you can easily control the size and layout of elements in your component based on the window's resize, resulting in a responsive and adaptive design.
 
-### What negative effects can happen if an observable is subscribed to multiple times using the asynpipe in one template?**
+### What negative effects can happen if an observable is subscribed to multiple times using the asynpipe in one template?
 When you subscribe to a data source multiple times using the `async` pipe in Angular, you may encounter unexpected behavior. The `async` pipe is designed to automatically handle the management of subscriptions and data emitted by an Observable or a Promise. When you subscribe to a data source multiple times, these issues may appear:
 
 1. **Multiple Subscriptions:** Each time you use the `async` pipe, it internally subscribes to the data source. If you use it multiple times in your template, you'll create multiple subscriptions to the same data source. This can lead to performance issues and memory leaks.
@@ -1524,7 +1525,7 @@ An observable can essentially be subscribed to multiple times by storing the obs
 </div>
 ```
 
-### What is the difference between property binding and attribute binding? When would you use one ovethe other?**
+### What is the difference between property binding and attribute binding? When would you use one over the other?
 
 **Property Binding:**
 
@@ -1575,6 +1576,36 @@ Though you could technically set the [attr.disabled] attribute binding, the valu
 The first line, which uses the disabled property, uses a boolean value. The second line, which uses the disabled attribute checks for null.
 Generally, use property binding over attribute binding as a boolean value is easy to read, the syntax is shorter, and a property is more performant.
 
+### What is the purpose of ngFor trackBy?
+The `ngFor` directive in Angular is used for iterating over arrays or collections to render a list of items. The `trackBy` function is an optional parameter of `ngFor` that serves a specific purpose in optimizing the rendering of the list. Its primary purpose is to improve the performance of Angular applications when dealing with dynamic lists.
+
+The primary purpose of `ngFor` with `trackBy` is to improve the performance of rendering lists in Angular by helping the framework identify which items have changed when the array is updated. Without `trackBy`, Angular needs to re-render the entire list when an item is added, removed, or modified. This can be inefficient and can lead to performance issues, especially with large lists.
+
+Here's how `trackBy` works and its main purposes:
+
+1. **Efficient Updates**: When you use `trackBy`, Angular tracks the identity of each item in the list based on a unique identifier returned by the `trackBy` function. When the array is updated, Angular can quickly determine which items have changed without re-rendering all items in the list.
+
+2. **Optimizing Rendering**: By identifying which items have changed, Angular can update only the DOM elements associated with those items. This leads to more efficient rendering and better performance, especially with large lists.
+
+3. **Minimizing Re-rendering**: Without `trackBy`, even if only one item in the list changes, Angular would re-render the entire list, which can be time-consuming and resource-intensive.
+
+Here's an example of how to use `ngFor` with `trackBy`:
+
+```html
+<ul>
+  <li *ngFor="let item of items; trackBy: trackByFn">{{ item.name }}</li>
+</ul>
+```
+
+In this example:
+
+- `items` is the array you're iterating over.
+- `trackBy` is used to specify a function, `trackByFn`, which returns a unique identifier for each item in the array.
+
+The `trackByFn` function should return a unique identifier for each item in the list. When the list is updated, Angular uses this identifier to determine which items have changed and need to be re-rendered.
+
+Using `trackBy` is especially useful when working with dynamic lists, such as lists that are frequently updated or large lists, as it can significantly improve the performance of your Angular application by reducing unnecessary re-rendering.
+
 ### How would you select a css class in any ancestor of the component host element?
 To select a CSS class in any ancestor of the component's host element, all the way up to the document root in Angular, you can use the `:host-context` selector. The `:host-context` selector allows you to apply styles based on the presence of a class on an ancestor element. Here's how you can use it:
 
@@ -1612,7 +1643,7 @@ The `:host-context` selector allows you to apply styles based on the presence of
 
 ## Performance
 
-### What are some of the things that you pay attention to, to make sure your angular application iperformant?**
+### What are some things you can pay attention to, to make sure your angular application is performant?
 To ensure that your Angular application is performant, you need to pay attention to various aspects of development, including both front-end and back-end considerations. Here are some key areas to focus on:
 
 1. **Optimizing Bundle Size**:
@@ -1681,7 +1712,7 @@ To ensure that your Angular application is performant, you need to pay attention
 21. **Security**:
     - Ensure that your application follows security best practices to protect against vulnerabilities that may affect performance.
 
-## NgZone Questions
+## NgZone
 
 ### How would you update the view if your model data is updated outside NgZone? Give an example of whedata can be updated outside NgZone.**
 In Angular, the view is updated as a result of changes to the application model, and this update typically occurs within the NgZone, which is a fundamental part of Angular's change detection mechanism. The NgZone ensures that change detection is triggered and the view is updated when model data changes.
