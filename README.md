@@ -270,10 +270,7 @@ export class ShoppingCartService {
 
 In Angular, you can specify the service's scope (singleton or non-singleton) using the `providedIn` property when decorating the service with `@Injectable`. Using a singleton service when you need to share data or functionality across the entire application is efficient and avoids unnecessary overhead. On the other hand, non-singleton services are useful when you need separate instances to manage component-specific data or state. The choice between them depends on the specific requirements of your application.
 
-### 9. **How do you create a service in Angular?**
-   Explain the steps to create and use a service.
-
-   **Answer:**
+### **How do you create a service in Angular?**
    1. Create a service class using the Angular CLI or manually.
    2. Register the service in a module's `providers` array.
    3. Inject the service into a component or another service.
@@ -282,10 +279,10 @@ In Angular, you can specify the service's scope (singleton or non-singleton) usi
 
 ## Angular Modules
 
-### 10. **What is an Angular module?**
+### **What is an Angular module?**
    An Angular module is a container for organizing components, services, directives, and other code. Modules help divide an Angular application into manageable parts. They declare what belongs to the application and provide a context for dependency injection.
 
-### 11. **Give an example of how you would break an e-commerce Angular app into different modules?**
+### **Give an example of how you would break an e-commerce Angular app into different modules?**
    Dividing an Angular application into different modules is a common practice to maintain code organization, reusability, and maintainability. Angular provides a modular architecture that allows you to create separate modules for different parts of your application. Here's an example of how you might divide an Angular app into different modules:
 
 Suppose you are building an e-commerce application with the following sections:
@@ -485,6 +482,206 @@ With this setup, when a user navigates to the "products" route, Angular will dyn
 
 ### **What are Angular pipes?**
 Angular pipes are a feature that allows you to transform and format data before it's displayed in the template. Pipes are used in Angular templates to apply common data manipulation tasks, such as formatting dates, numbers, and text, or filtering and sorting lists. Some commonly used built-in pipes are 'date', 'currency', 'uppercase', 'lowercase', 'percent'.
+
+## Template Questions
+
+### **How can you use a class to change the color of a selected element (clicked on element) in a list component?**
+In Angular, you can use a class to change the color of a selected element in a list component by following these steps:
+
+1. **HTML Template:**
+   In your list component's HTML template, define the list and utilize Angular's `*ngFor` directive to iterate through the list items. Use class binding to conditionally apply a CSS class to the selected item.
+
+   ```html
+   <ul>
+     <li
+       *ngFor="let item of items; let i = index"
+       [class.selected]="i === selectedIndex"
+       (click)="selectItem(i)"
+     >
+       {{ item.name }}
+     </li>
+   </ul>
+   ```
+
+   - `items`: This is an array containing your list items.
+   - `selectedIndex`: This is a property in your component that stores the index of the currently selected item.
+   - `[class.selected]`: This is the class binding that applies the "selected" class to the selected item.
+
+2. **List Component TypeScript:**
+   In your component's TypeScript file, define the `items` array, the `selectedIndex` property, and the `selectItem` method to handle the selection of list items.
+
+   ```typescript
+   import { Component } from '@angular/core';
+
+   @Component({
+     selector: 'app-list',
+     templateUrl: './list.component.html',
+     styleUrls: ['./list.component.css']
+   })
+   export class ListComponent {
+     items = [
+       { id: 1, name: 'Item 1' },
+       { id: 2, name: 'Item 2' },
+       { id: 3, name: 'Item 3' }
+     ];
+
+     selectedIndex: number | null = null;
+
+     selectItem(index: number): void {
+       this.selectedIndex = index;
+     }
+   }
+   ```
+
+   The `selectItem` method updates the `selectedIndex` property when an item is clicked.
+
+3. **CSS Styling:**
+   In your component's CSS file, define the styles for the "selected" class to change the color of the selected item:
+
+   ```css
+   .selected {
+     color: red; /* Change to your preferred selected state styling */
+   }
+   ```
+
+   In this example, the "selected" class changes the text color to red, but you can customize it to your preferred styling.
+
+With these steps, when you click on an item in the list, the `selectItem` method updates the `selectedIndex`, and the "selected" class is applied to the selected item, changing its text color. You can adapt the CSS class and styling to meet your application's design requirements.
+
+### **What are different types of template binding in Angular and give an example for each.**
+In Angular, there are different types of template binding that allow you to interact with your templates and components. Here are the main types of template binding along with examples for each:
+
+1. **Interpolation Binding ({{ expression }}):**
+   - Interpolation binding allows you to insert the value of a component property into the template.
+   - It's used to display dynamic values within the text content of HTML elements.
+
+   Example:
+   ```html
+   <h1>Welcome, {{ userName }}</h1>
+   ```
+
+2. **Property Binding ([property]="expression"):**
+   - Property binding allows you to set an HTML element's property to the value of a component property.
+   - It's typically used for attributes like `src`, `href`, `disabled`, and more.
+
+   Example:
+   ```html
+   <img [src]="imageUrl">
+   <input [disabled]="isDisabled">
+   ```
+
+3. **Event Binding ( (event)="expression" ):**
+   - Event binding allows you to trigger a method or expression in response to an event (e.g., click, input, mouseover) on an HTML element.
+
+   Example:
+   ```html
+   <button (click)="handleClick()">Click me</button>
+   <input (input)="handleChange($event)">
+   ```
+
+4. **Two-Way Binding ( [(ngModel)]="expression" ):**
+   - Two-way binding combines property binding and event binding to achieve a bidirectional data flow. It's often used with forms to synchronize input and model data.
+
+   Example (using the `ngModel` directive):
+   ```html
+   <input [(ngModel)]="userInput">
+   ```
+
+5. **Class Binding ( [class.class-name]="expression" ):**
+   - Class binding allows you to conditionally add or remove CSS classes based on the value of a component property.
+
+   Example:
+   ```html
+   <div [class.error]="hasError">This is an error message.</div>
+   ```
+
+6. **Style Binding ( [style.style-property]="expression" ):**
+   - Style binding allows you to conditionally set inline styles for an HTML element based on the value of a component property.
+
+   Example:
+   ```html
+   <div [style.color]="textColor">This text can change color.</div>
+   ```
+
+7. **Attribute Binding ( [attr.attribute-name]="expression" ):**
+   - Attribute binding lets you conditionally set HTML attributes on elements based on the value of a component property.
+
+   Example:
+   ```html
+   <a [attr.href]="isExternal ? externalLink : internalLink">Link</a>
+   ```
+
+8. **Template Reference Variables (#varName):**
+   - Template reference variables, also known as "template refs," allow you to reference elements in your template to access their properties or invoke methods.
+
+   Example:
+   ```html
+   <input #userInputRef type="text">
+   <button (click)="userInputRef.value = ''">Clear Input</button>
+   ```
+
+These are the primary types of template binding in Angular, and they serve different purposes in manipulating the content and behavior of your templates. Depending on the use case, you can choose the appropriate type of binding to create dynamic and interactive Angular applications.
+
+### **What is the difference between ng-content, ng-container and ng- template?**
+`ng-content`, `ng-container`, and `ng-template` are structural directives used for managing the structure and content of components and templates:
+
+1. **`ng-content`**:
+
+   - **Purpose**: `ng-content` is used to project the content of a component or directive into its template. It allows you to create reusable components with placeholders for content.
+   - **Example**:
+
+     ```html
+     <!-- Parent Component Template -->
+     <app-child>
+       <p>This content will be projected into app-child component.</p>
+     </app-child>
+     ```
+
+     ```html
+     <!-- Child Component Template (app-child) -->
+     <ng-content></ng-content>
+     ```
+
+   - In this example, the content within the `app-child` component tags is projected into the `app-child` component using `ng-content`.
+
+2. **`ng-container`**:
+
+   - **Purpose**: `ng-container` is a structural directive used to group elements without introducing an additional DOM element. It can be helpful for applying structural directives like `*ngIf` or `*ngFor` to multiple elements without wrapping them in an extra container.
+   - **Example**:
+
+     ```html
+     <ng-container *ngFor="let item of items">
+       <div>{{ item.name }}</div>
+     </ng-container>
+     ```
+
+   - In this example, `ng-container` is used to apply `*ngFor` to the `div` elements without creating an unnecessary wrapping element.
+
+3. **`ng-template`**:
+
+   - **Purpose**: `ng-template` defines an Angular template that can be conditionally rendered or used as a template for creating views programmatically. It's often used in combination with structural directives.
+   - **Example**:
+
+     ```html
+     <ng-container *ngIf="showContent; else noContent">
+       <ng-template #content>
+         <p>This content is displayed when showContent is true.</p>
+       </ng-template>
+     </ng-container>
+     <ng-template #noContent>
+       <p>No content available.</p>
+     </ng-template>
+     ```
+
+   - In this example, `ng-template` defines two templates, one for displaying content and another for displaying a message when there is no content to show.
+
+In summary:
+
+- `ng-content` is used for content projection, allowing you to pass content into a component.
+- `ng-container` is a structural directive used for grouping elements without introducing a new DOM element.
+- `ng-template` defines templates that can be conditionally rendered or used programmatically as a template for views.
+
+These elements and directives are essential for structuring and controlling the layout and content in Angular applications, improving code organization, and creating more flexible and reusable components.
 
 # Mid to Senior-Level Angular Questions
 
@@ -891,7 +1088,7 @@ In Angular, you can define transitions between two animation states using the An
 ### **How do you define a wildcard state in an Angular animation?**
 In Angular's animations module, you can define a wildcard state using the `*` (asterisk) character. A wildcard state, often referred to as a catch-all state, allows you to apply a common animation to elements when their specific state transitions are not explicitly defined.
 
-## Code Examples
+## Template Questions
 ### **What does this code do and when would you use it versus using [ngClass] in the template?**
 
 ```@HostBinding('class.valid') isValid;```
@@ -918,14 +1115,12 @@ Here's when you might choose to use `@HostBinding` over `[ngClass] in the templa
 
 3. **Template Interaction:** When the class application is based on user interactions or template-specific conditions, using `[ngClass]` directly in the template may be more appropriate because it's more visible and easier to manage.
 
-In summary, the choice between `@HostBinding` and `[ngClass] in the template depends on your specific use case and requirements. If you want a simple, direct, and possibly more performant way to apply a class to the host element of a directive based on a single property, `@HostBinding` is a suitable choice. If you need more complex class application logic, multiple class conditions, or interactions in the template, `[ngClass]` is more flexible and appropriate.
+In summary, the choice between `@HostBinding` and `[ngClass]` in the template depends on your specific use case and requirements. If you want a simple, direct, and possibly more performant way to apply a class to the host element of a directive based on a single property, `@HostBinding` is a suitable choice. If you need more complex class application logic, multiple class conditions, or interactions in the template, `[ngClass]` is more flexible and appropriate.
 
 ### **What does this code do?**
 ```<div *ngIf='someObservableData | async as data; else loading'>{{data}}</div>```
-
-```<ng-template #loading>
-  Loading Data...
-</ng-template>```
+   
+```<ng-template #loading>Loading Data...</ng-template>```
 
 This code uses the `*ngIf` directive along with the `async` pipe and a template reference variable (`#loading`) to conditionally display content based on the status of an Observable data source.
 
@@ -949,8 +1144,7 @@ So, the code as a whole achieves the following:
 
 This pattern is commonly used for displaying loading indicators while waiting for data to load asynchronously, improving user experience by providing feedback that data is being fetched. When the data becomes available, the loading message is replaced with the actual data.
 
-## Display Questions
-### 26. **How would you control size of an element on resize of the window in a component?**
+### **How would you control size of an element on resize of the window in a component?**
 
 In Angular, you can control the size of an element in a component based on the window's resize event by following these steps:
 
@@ -1076,6 +1270,44 @@ In Angular, you can use Angular Flex Layout (fxLayout and fxFlex) to control the
    ```
 
 By using Angular Flex Layout (`fxFlex` and `fxLayout`) and responsive breakpoints, you can easily control the size and layout of elements in your component based on the window's resize, resulting in a responsive and adaptive design.
+
+### **What negative effects can happen if an observable is subscribed to multiple times using the async pipe in one template?**
+When you subscribe to a data source multiple times using the `async` pipe in Angular, you may encounter unexpected behavior. The `async` pipe is designed to automatically handle the management of subscriptions and data emitted by an Observable or a Promise. When you subscribe to a data source multiple times, these issues may appear:
+
+1. **Multiple Subscriptions:** Each time you use the `async` pipe, it internally subscribes to the data source. If you use it multiple times in your template, you'll create multiple subscriptions to the same data source. This can lead to performance issues and memory leaks.
+
+2. **Unpredictable Behavior:** The `async` pipe implicitly manages the subscription lifecycle, including unsubscribing when a component is destroyed. If you have multiple subscriptions, the timing of these automatic unsubscriptions can become unpredictable. It may result in subscriptions that continue to receive and process data even when the component is no longer in use.
+
+3. **Resource Leaks:** In Angular, it's a good practice to unsubscribe from subscriptions when a component is destroyed to prevent resource leaks. If you manually subscribe multiple times using the `async` pipe, you might forget to unsubscribe from some of these subscriptions, leading to resource leaks and a higher risk of memory-related issues.
+
+To avoid these problems, it's recommended to use the `async` pipe only once in your template for a given data source. If you need to display the same data in multiple parts of your template, consider using Angular's built-in mechanisms, such as `*ngFor` for lists or Angular services to share the data among components. These approaches ensure that you have a single subscription, which is automatically managed by the `async` pipe and helps maintain a clean and predictable component lifecycle.
+
+### **Give a couple examples of the correct way to subscribe to an Observable via the async pipe within one template.**
+An observable can essentially be subscribed to multiple times by storing the observable result in template reference variables and then binding to these reference variables. Here are a couple of examples:
+
+1. **Using Template Reference Variables:**
+
+   You can store the observable result in a template reference variable and use it multiple times.
+
+   ```<div *ngIf="(myObservable$ | async) as myObservable">
+      <component-a [id]="myObservable.id">
+      <component-b [name]="myObservable.name">
+    </div>
+   ```
+
+   In this example, the `myObservable$` observable is subscribed to only one time.
+
+2. **Subscribe to multiple observables**
+```<div *ngIf="{
+  observable1: myObservable1$ | async,
+  observable2: myObservable2$ | async
+} as data">
+  ... page content
+  {{data.observable1.id}}: {{data.observable1.name}}
+
+  {{data.observable2.status}}
+
+</div>```
 
 # General Questions
 
